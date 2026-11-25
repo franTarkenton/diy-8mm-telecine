@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIY Technic Standard 8mm Telecine — Architecture &amp; Film Advance Diagram</title>
+  <style>
+    :root {
+      --background: #0f172a;
+      --card: #1e293b;
+      --card-border: #334155;
+      --border: #475569;
+      --foreground: #f1f5f9;
+      --muted-foreground: #94a3b8;
+      --primary: #3b82f6;
+      --primary-foreground: #ffffff;
+      https: //www.lenovo.com/ca/en/p/laptops/thinkpad/thinkpadt/lenovo-thinkpad-t14-gen-7-14-inch-amd/22al001aushttps://www.lenovo.com/ca/en/p/laptops/thinkpad/thinkpadt/lenovo-thinkpad-t14-gen-7-14-inch-amd/22al001aus
+        --success: #22c55e;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --chart-2: #14b8a6;
+      --chart-3: #a855f7;
+      --chart-4: #f97316;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --background: #f8fafc;
+        --card: #ffffff;
+        --card-border: #e2e8f0;
+        --border: #cbd5e1;
+        --foreground: #0f172a;
+        --muted-foreground: #64748b;
+        --primary: #2563eb;
+        --primary-foreground: #ffffff;
+        --success: #16a34a;
+        --warning: #d97706;
+        --error: #dc2626;
+        --chart-2: #0d9488;
+        --chart-3: #9333ea;
+        --chart-4: #ea580c;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      background: var(--background);
+      color: var(--foreground);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      user-select: none;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin: 0 0 16px;
+      font-size: 13px;
+      color: var(--muted-foreground);
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .btn-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      background: transparent;
+      color: var(--muted-foreground);
+      transition: all 0.15s ease;
+    }
+
+    button:hover {
+      color: var(--foreground);
+      border-color: var(--border);
+    }
+
+    button.active,
+    button.primary {
+      background: var(--primary);
+      color: var(--primary-foreground);
+      border-color: var(--primary);
+    }
+
+    button.primary:hover {
+      filter: brightness(1.08);
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--muted-foreground);
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    svg.diagram {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      background: var(--card);
+    }
+
+    .part-node {
+      cursor: pointer;
+      transition: opacity 0.15s ease, filter 0.15s ease;
+    }
+
+    .part-node:hover {
+      filter: brightness(1.15);
+    }
+
+    .part-selected {
+      stroke-width: 2.5px !important;
+      filter: drop-shadow(0 0 5px var(--primary));
+    }
+
+    .svg-label {
+      font-size: 10px;
+      font-weight: 600;
+      fill: var(--foreground);
+      pointer-events: none;
+    }
+
+    .svg-sub {
+      font-size: 8.5px;
+      fill: var(--muted-foreground);
+      pointer-events: none;
+    }
+
+    .sim-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 12px;
+    }
+
+    .sim-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      padding-bottom: 6px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .inspector {
+      margin-top: 12px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+
+    .insp-title {
+      font-weight: 700;
+      color: var(--primary);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>DIY Technic Standard 8mm Telecine Film Scanner</h1>
+    <p class="subtitle">Interactive system architecture &amp; sprocketless film-advance simulator (works offline in any
+      browser).</p>
+
+    <div class="toolbar">
+      <div class="btn-group">
+        <button id="tab-assembly" class="active">1. Full System Diagram</button>
+        <button id="tab-advance">2. How Film Advancing Works (Animated)</button>
+      </div>
+      <div id="sim-controls" class="btn-group hidden">
+        <button id="btn-step-frame" class="primary">Scan 1 Frame</button>
+        <button id="btn-auto">Auto Loop</button>
+        <span id="frame-counter" class="mono hint" style="padding-left:6px;">Frames: 0</span>
+      </div>
+      <div id="assembly-hint" class="hint">Click any component to inspect how it connects</div>
+    </div>
+
+    <!-- VIEW 1: FULL SYSTEM ASSEMBLY SVG -->
+    <div id="view-assembly">
+      <svg viewBox="0 0 760 285" class="diagram" aria-label="8mm Telecine System Diagram">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5"
+            orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--muted-foreground)" />
+          </marker>
+          <marker id="arr-light" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--warning)" />
+          </marker>
+          <marker id="arr-film" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--primary)" />
+          </marker>
+        </defs>
+
+        <!-- Baseplate -->
+        <g class="part-node" data-part="baseplate">
+          <rect x="20" y="255" width="720" height="16" rx="3" fill="var(--background)" stroke="var(--border)"
+            stroke-width="1.5" />
+          <text x="380" y="266" text-anchor="middle" class="svg-sub">Compatible LEGO Technic Baseplate (32×32 or 48×48)
+            — rigid flat foundation</text>
+        </g>
+
+        <!-- Optical Axis Band -->
+        <line x1="88" y1="150" x2="455" y2="150" stroke="var(--warning)" stroke-width="1.5" stroke-dasharray="4 3"
+          opacity="0.7" marker-end="url(#arr-light)" />
+        <text x="275" y="114" text-anchor="middle" class="svg-sub" style="fill:var(--warning)">OPTICAL LIGHT PATH
+          (5600K)</text>
+
+        <!-- 1. LED Backlight -->
+        <g class="part-node" data-part="led">
+          <rect x="30" y="122" width="52" height="56" rx="5" fill="var(--background)" stroke="var(--warning)"
+            stroke-width="1.5" />
+          <circle cx="56" cy="145" r="11" fill="var(--warning)" opacity="0.25" stroke="var(--warning)"
+            stroke-width="1.2" />
+          <text x="56" y="148" text-anchor="middle" class="svg-label">LED</text>
+          <text x="56" y="191" text-anchor="middle" class="svg-label">CRI 95+ LED</text>
+          <text x="56" y="201" text-anchor="middle" class="svg-sub">5600K USB-C</text>
+        </g>
+
+        <!-- 2. Acrylic Diffuser -->
+        <g class="part-node" data-part="diffuser">
+          <rect x="104" y="122" width="12" height="56" rx="2" fill="var(--foreground)" opacity="0.18"
+            stroke="var(--foreground)" stroke-width="1.2" />
+          <text x="110" y="191" text-anchor="middle" class="svg-label">Diffuser</text>
+          <text x="110" y="201" text-anchor="middle" class="svg-sub">3mm Acrylic</text>
+        </g>
+
+        <!-- 3. Black Brick Aperture Mask -->
+        <g class="part-node" data-part="mask">
+          <rect x="136" y="120" width="14" height="22" fill="var(--foreground)" opacity="0.75" />
+          <rect x="136" y="158" width="14" height="22" fill="var(--foreground)" opacity="0.75" />
+          <rect x="136" y="142" width="14" height="16" fill="var(--warning)" opacity="0.25" stroke="var(--warning)"
+            stroke-width="1" />
+          <text x="143" y="191" text-anchor="middle" class="svg-label">Mask</text>
+          <text x="143" y="201" text-anchor="middle" class="svg-sub">1 Frame</text>
+        </g>
+
+        <!-- Supply Reel (Top Left) -->
+        <g class="part-node" data-part="supply">
+          <circle cx="176" cy="48" r="24" fill="var(--background)" stroke="var(--primary)" stroke-width="1.8" />
+          <circle cx="176" cy="48" r="6" fill="var(--primary)" opacity="0.35" stroke="var(--primary)"
+            stroke-width="1.2" />
+          <text x="110" y="45" text-anchor="middle" class="svg-label">Supply Reel</text>
+          <text x="110" y="56" text-anchor="middle" class="svg-sub">8mm reel on</text>
+          <text x="110" y="66" text-anchor="middle" class="svg-sub">A-frame axle</text>
+        </g>
+
+        <!-- Film Strip Path -->
+        <path d="M 176 72 L 176 218 Q 176 232 192 232 L 244 232 Q 262 232 262 216 L 262 72" fill="none"
+          stroke="var(--primary)" stroke-width="2.5" stroke-dasharray="6 3" marker-mid="url(#arr-film)" />
+
+        <!-- 4. Smooth Tile Film Gate -->
+        <g class="part-node" data-part="gate">
+          <rect x="167" y="122" width="18" height="56" rx="2" fill="var(--primary)" opacity="0.16"
+            stroke="var(--primary)" stroke-width="1.8" />
+          <rect x="172" y="144" width="8" height="12" fill="var(--warning)" opacity="0.4" stroke="var(--primary)"
+            stroke-width="1" />
+          <text x="176" y="114" text-anchor="middle" class="svg-label">Film Gate</text>
+        </g>
+
+        <!-- 5. Pinch Rollers -->
+        <g class="part-node" data-part="rollers">
+          <circle cx="206" cy="222" r="11" fill="var(--background)" stroke="var(--chart-2)" stroke-width="2" />
+          <circle cx="206" cy="242" r="11" fill="var(--background)" stroke="var(--chart-2)" stroke-width="2" />
+          <circle cx="206" cy="222" r="3" fill="var(--chart-2)" />
+          <circle cx="206" cy="242" r="3" fill="var(--chart-2)" />
+          <text x="206" y="206" text-anchor="middle" class="svg-label">Pinch Rollers</text>
+        </g>
+
+        <!-- Take-Up Reel (Top Middle) -->
+        <g class="part-node" data-part="takeup">
+          <circle cx="262" cy="48" r="24" fill="var(--background)" stroke="var(--chart-2)" stroke-width="1.8" />
+          <circle cx="262" cy="48" r="6" fill="var(--chart-2)" opacity="0.35" stroke="var(--chart-2)"
+            stroke-width="1.2" />
+          <text x="328" y="45" text-anchor="middle" class="svg-label">Take-Up Reel</text>
+          <text x="328" y="56" text-anchor="middle" class="svg-sub">Slip-clutch</text>
+          <text x="328" y="66" text-anchor="middle" class="svg-sub">rubber band</text>
+        </g>
+        <line x1="214" y1="215" x2="258" y2="54" stroke="var(--chart-2)" stroke-width="1.4" stroke-dasharray="2 2"
+          opacity="0.85" />
+
+        <!-- 6. Light-Tight Brick Tunnel -->
+        <g class="part-node" data-part="tunnel">
+          <rect x="202" y="128" width="128" height="44" rx="2" fill="var(--foreground)" opacity="0.12"
+            stroke="var(--foreground)" stroke-width="1.5" />
+          <text x="266" y="148" text-anchor="middle" class="svg-label">Black Brick Tunnel</text>
+          <text x="266" y="160" text-anchor="middle" class="svg-sub">Blocks stray room light</text>
+        </g>
+
+        <!-- 7. Macro Tubes + 35mm Lens -->
+        <g class="part-node" data-part="lens">
+          <rect x="334" y="132" width="52" height="36" rx="3" fill="var(--background)" stroke="var(--chart-3)"
+            stroke-width="1.6" />
+          <rect x="386" y="136" width="24" height="28" rx="2" fill="var(--chart-3)" opacity="0.22"
+            stroke="var(--chart-3)" stroke-width="1.4" />
+          <text x="360" y="153" text-anchor="middle" class="svg-label">35mm</text>
+          <text x="398" y="153" text-anchor="middle" class="svg-sub">Tubes</text>
+          <text x="372" y="183" text-anchor="middle" class="svg-label">35mm Lens + Macro</text>
+          <text x="372" y="193" text-anchor="middle" class="svg-sub">C-mount + 15–25mm rings</text>
+        </g>
+
+        <!-- 8. RPi HQ Camera -->
+        <g class="part-node" data-part="camera">
+          <rect x="414" y="126" width="46" height="48" rx="4" fill="var(--background)" stroke="var(--success)"
+            stroke-width="1.8" />
+          <rect x="425" y="140" width="16" height="20" rx="2" fill="var(--success)" opacity="0.3"
+            stroke="var(--success)" stroke-width="1" />
+          <text x="437" y="188" text-anchor="middle" class="svg-label">HQ Camera</text>
+          <text x="437" y="198" text-anchor="middle" class="svg-sub">12.3MP IMX477</text>
+        </g>
+
+        <path d="M 460 150 L 512 150" fill="none" stroke="var(--success)" stroke-width="2" marker-end="url(#arr)" />
+        <text x="486" y="144" text-anchor="middle" class="svg-sub">CSI Ribbon</text>
+
+        <!-- 9. Raspberry Pi 4/5 -->
+        <g class="part-node" data-part="pi">
+          <rect x="515" y="116" width="102" height="68" rx="6" fill="var(--background)" stroke="var(--success)"
+            stroke-width="1.8" />
+          <text x="566" y="138" text-anchor="middle" class="svg-label">Raspberry Pi 4 / 5</text>
+          <text x="566" y="152" text-anchor="middle" class="svg-sub">picamera2 + OpenCV</text>
+          <text x="566" y="164" text-anchor="middle" class="svg-sub">src/scanner.py</text>
+          <text x="566" y="176" text-anchor="middle" class="svg-sub">GPIO 17,27,22,23</text>
+        </g>
+
+        <path d="M 617 150 L 656 150" fill="none" stroke="var(--primary)" stroke-width="2" marker-end="url(#arr)" />
+        <text x="636" y="144" text-anchor="middle" class="svg-sub">USB 3</text>
+
+        <!-- 10. External SSD -->
+        <g class="part-node" data-part="ssd">
+          <rect x="659" y="126" width="76" height="48" rx="5" fill="var(--background)" stroke="var(--primary)"
+            stroke-width="1.8" />
+          <text x="697" y="147" text-anchor="middle" class="svg-label">USB 3.0 SSD</text>
+          <text x="697" y="160" text-anchor="middle" class="svg-sub">12-bit .DNG</text>
+        </g>
+
+        <path d="M 566 184 L 566 216 L 516 216" fill="none" stroke="var(--chart-4)" stroke-width="1.8"
+          marker-end="url(#arr)" />
+        <text x="598" y="205" text-anchor="middle" class="svg-sub">DuPont (F-F)</text>
+
+        <!-- 11. ULN2003 Driver -->
+        <g class="part-node" data-part="uln">
+          <rect x="424" y="200" width="90" height="36" rx="4" fill="var(--background)" stroke="var(--chart-4)"
+            stroke-width="1.6" />
+          <text x="469" y="216" text-anchor="middle" class="svg-label">ULN2003 Driver</text>
+          <text x="469" y="228" text-anchor="middle" class="svg-sub">+ External 5V / GND</text>
+        </g>
+
+        <path d="M 424 218 L 368 218" fill="none" stroke="var(--chart-4)" stroke-width="1.8" marker-end="url(#arr)" />
+
+        <!-- 12. 28BYJ-48 Stepper + Worm Gear -->
+        <g class="part-node" data-part="stepper">
+          <rect x="278" y="198" width="88" height="40" rx="4" fill="var(--background)" stroke="var(--chart-2)"
+            stroke-width="1.6" />
+          <text x="322" y="214" text-anchor="middle" class="svg-label">28BYJ-48 Stepper</text>
+          <text x="322" y="226" text-anchor="middle" class="svg-sub">Coupler → Worm → 24T</text>
+        </g>
+        <path d="M 278 222 L 220 222" fill="none" stroke="var(--chart-2)" stroke-width="2" marker-end="url(#arr)" />
+      </svg>
+    </div>
+
+    <!-- VIEW 2: ANIMATED FILM ADVANCE SIMULATOR -->
+    <div id="view-advance" class="sim-grid hidden">
+      <div class="card">
+        <div class="sim-header">
+          <strong>A. Sprocketless Mechanical Drive</strong>
+          <span id="motor-status" class="mono hint">IDLE</span>
+        </div>
+        <canvas id="mech-canvas" width="350" height="215"></canvas>
+      </div>
+      <div class="card">
+        <div class="sim-header">
+          <strong>B. Live OpenCV Sprocket-Lock View</strong>
+          <span id="cv-status" class="mono" style="color:var(--success)">READY</span>
+        </div>
+        <canvas id="cv-canvas" width="350" height="215"></canvas>
+      </div>
+    </div>
+
+    <!-- Bottom Inspector Bar -->
+    <div class="inspector">
+      <span id="insp-title" class="insp-title">Tip: </span>
+      <span id="insp-desc">Click any part in the diagram above to see what it does and how it connects—or switch to Tab
+        2 to watch the film advance &amp; sprocket-lock loop in action.</span>
+    </div>
+  </div>
+
+  <script>
+    const PARTS = {
+      led: {
+        title: "CRI 95+ Bi-Color LED (5600K)",
+        desc: "Illuminates the film from behind with accurate, flicker-free daylight color (5600K). Powered via USB-C so brightness never drifts during a long reel."
+      },
+      diffuser: {
+        title: "3mm Milky-White Cast Acrylic (#2447)",
+        desc: "Spreads the LED's individual diodes into a perfectly even, hotspot-free white glow right behind the film frame."
+      },
+      mask: {
+        title: "Black Brick Aperture Mask",
+        desc: "A small rectangular window built from black bricks so light only passes through 1 film frame + its adjacent sprocket hole, preventing glare and contrast loss."
+      },
+      supply: {
+        title: "Supply Reel (A-Frame Tower)",
+        desc: "Holds your Standard 8mm reel on a Technic axle with bushings/tape to fit the 8mm (5/16\") hub. Unspools freely with gentle drag so the film stays taut."
+      },
+      gate: {
+        title: "Smooth Studless-Tile Film Gate",
+        desc: "A flat channel lined with smooth LEGO tiles (8mm wide + tiny clearance). Holds the film flat in the lens's focal plane without any metal claws that could scratch or tear old film."
+      },
+      rollers: {
+        title: "Soft Rubber Pinch Rollers (Sprocketless Drive)",
+        desc: "Two small rubber Technic tires gently pinch the film below the gate and pull it downward. Driven by the 24-tooth gear, they move the film smoothly by fractions of a millimeter."
+      },
+      takeup: {
+        title: "Take-Up Reel + Slip-Clutch Rubber Band",
+        desc: "Driven by a thin rubber band from the roller shaft. As the reel fills up and gets wider, the rubber band gently slips—keeping light winding tension without ever pulling the film through the gate."
+      },
+      tunnel: {
+        title: "Light-Tight Black Brick Tunnel",
+        desc: "Connects the film gate to the front of the 35mm lens so zero room light hits the front of the film, ensuring deep blacks and clean shadows."
+      },
+      lens: {
+        title: "35mm C-Mount Lens + Macro Extension Tubes",
+        desc: "Stacking ~15–25mm of C-mount spacer rings lets the 35mm lens focus super close, magnifying a tiny 4.5×3.3mm Standard 8mm frame to fill ~80% of the camera sensor. Thumbscrews lock focus & iris."
+      },
+      camera: {
+        title: "Raspberry Pi HQ Camera (12.3 MP IMX477)",
+        desc: "Electronic shutter (zero mechanical wear over 100,000+ frames) capturing 12-bit RAW/DNG files with huge dynamic range for recovering dark shadows and bright highlights."
+      },
+      pi: {
+        title: "Raspberry Pi 4 / 5 running src/scanner.py",
+        desc: "Watches a fast low-res preview stream with OpenCV to spot the sprocket hole, steps the motor via GPIO 17/27/22/23 until centered, pauses to let vibration stop, then saves a full-res DNG."
+      },
+      ssd: {
+        title: "External USB 3.0 SSD",
+        desc: "Stores sequential 12-bit .dng frames (frame_000001.dng, etc.). Each 50ft reel (~3,600 frames) uses ~70–90 GB, so USB 3.0 keeps capture fast and avoids wearing out the microSD card."
+      },
+      uln: {
+        title: "ULN2003 Driver Board (+ External 5V)",
+        desc: "Amplifies the Pi's tiny 3.3V GPIO signals to power the 5V motor coils. Powered by a separate 5V supply (sharing GND with the Pi) so motor current never browns out the SSD."
+      },
+      stepper: {
+        title: "28BYJ-48 Stepper + Coupler + Worm Gear → 24T Gear",
+        desc: "4096 half-steps/rev × 24:1 worm-gear reduction = ~98,000 micro-steps per roller turn! The worm gear is also self-locking, so the film won't slip when the coils turn off before each photo."
+      },
+      baseplate: {
+        title: "Compatible Technic Baseplate (32×32 or 48×48)",
+        desc: "Locks the LED, film gate, reel towers, tunnel, and camera cradle onto one rigid grid so alignment stays rock-solid across an entire reel."
+      }
+    };
+
+    const partNodes = document.querySelectorAll(".part-node");
+    const inspTitle = document.getElementById("insp-title");
+    const inspDesc = document.getElementById("insp-desc");
+
+    partNodes.forEach((node) => {
+      node.addEventListener("click", () => {
+        partNodes.forEach((n) => n.classList.remove("part-selected"));
+        node.classList.add("part-selected");
+        const key = node.getAttribute("data-part");
+        if (PARTS[key]) {
+          inspTitle.textContent = PARTS[key].title + ": ";
+          inspDesc.textContent = PARTS[key].desc;
+        }
+      });
+    });
+
+    const tabAssembly = document.getElementById("tab-assembly");
+    const tabAdvance = document.getElementById("tab-advance");
+    const viewAssembly = document.getElementById("view-assembly");
+    const viewAdvance = document.getElementById("view-advance");
+    const simControls = document.getElementById("sim-controls");
+    const assemblyHint = document.getElementById("assembly-hint");
+
+    function showTab(which) {
+      const isAdv = which === "advance";
+      viewAssembly.classList.toggle("hidden", isAdv);
+      viewAdvance.classList.toggle("hidden", !isAdv);
+      simControls.classList.toggle("hidden", !isAdv);
+      assemblyHint.classList.toggle("hidden", isAdv);
+      tabAssembly.classList.toggle("active", !isAdv);
+      tabAdvance.classList.toggle("active", isAdv);
+
+      if (isAdv) {
+        inspTitle.textContent = "How it advances: ";
+        inspDesc.textContent = "The rubber rollers advance the film until OpenCV sees the bright backlit sprocket hole hit the green target line—then the worm gear holds it still, coils power off for 0.35s, and the HQ Camera shoots a 12-bit DNG.";
+        drawSim();
+      } else {
+        inspTitle.textContent = "Tip: ";
+        inspDesc.textContent = "Click any part in the diagram above to see what it does and how it connects.";
+      }
+    }
+
+    tabAssembly.addEventListener("click", () => showTab("assembly"));
+    tabAdvance.addEventListener("click", () => showTab("advance"));
+
+    const mechCanvas = document.getElementById("mech-canvas");
+    const cvCanvas = document.getElementById("cv-canvas");
+    const mechCtx = mechCanvas.getContext("2d");
+    const cvCtx = cvCanvas.getContext("2d");
+    const motorStatus = document.getElementById("motor-status");
+    const cvStatus = document.getElementById("cv-status");
+    const frameCounterEl = document.getElementById("frame-counter");
+    const btnStepFrame = document.getElementById("btn-step-frame");
+    const btnAuto = document.getElementById("btn-auto");
+
+    const PITCH = 100;
+    const TARGET_Y = 108;
+    let filmPos = 108;
+    let gearAngle = 0;
+    let frameCount = 0;
+    let phase = "IDLE";
+    let phaseTimer = 0;
+    let flashAlpha = 0;
+    let autoLoop = false;
+    let animId = null;
+
+    function getThemeColors() {
+      const cs = getComputedStyle(document.documentElement);
+      return {
+        fg: cs.getPropertyValue("--foreground").trim(),
+        muted: cs.getPropertyValue("--muted-foreground").trim(),
+        bg: cs.getPropertyValue("--background").trim(),
+        primary: cs.getPropertyValue("--primary").trim(),
+        success: cs.getPropertyValue("--success").trim(),
+        warning: cs.getPropertyValue("--warning").trim(),
+      };
+    }
+
+    function drawGear(ctx, cx, cy, r, teeth, angle, stroke, fill) {
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(angle);
+      ctx.beginPath();
+      for (let i = 0; i < teeth * 2; i++) {
+        const rad = i % 2 === 0 ? r : r - 4;
+        const a = (i * Math.PI) / teeth;
+        const x = Math.cos(a) * rad;
+        const y = Math.sin(a) * rad;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.fillStyle = fill;
+      ctx.fill();
+      ctx.strokeStyle = stroke;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(0, 0, 4, 0, Math.PI * 2);
+      ctx.fillStyle = stroke;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function drawSim() {
+      const c = getThemeColors();
+      mechCtx.clearRect(0, 0, 350, 215);
+
+      const filmX = 110;
+      mechCtx.fillStyle = "rgba(120, 90, 50, 0.35)";
+      mechCtx.strokeStyle = c.primary;
+      mechCtx.lineWidth = 1.5;
+      mechCtx.fillRect(filmX, 8, 54, 198);
+      mechCtx.strokeRect(filmX, 8, 54, 198);
+
+      const offset = filmPos % PITCH;
+      for (let y = offset - PITCH; y < 220; y += PITCH) {
+        mechCtx.fillStyle = c.warning;
+        mechCtx.fillRect(filmX + 5, y - 7, 9, 14);
+        mechCtx.strokeStyle = c.muted;
+        mechCtx.lineWidth = 1;
+        mechCtx.strokeRect(filmX + 18, y - 28, 30, 56);
+      }
+
+      mechCtx.fillStyle = c.bg;
+      mechCtx.strokeStyle = c.fg;
+      mechCtx.lineWidth = 1.5;
+      mechCtx.fillRect(filmX - 10, 46, 10, 62);
+      mechCtx.strokeRect(filmX - 10, 46, 10, 62);
+      mechCtx.fillRect(filmX + 54, 46, 10, 62);
+      mechCtx.strokeRect(filmX + 54, 46, 10, 62);
+      mechCtx.fillStyle = c.muted;
+      mechCtx.font = "10px sans-serif";
+      mechCtx.fillText("Smooth Tile", 24, 72);
+      mechCtx.fillText("Film Gate", 32, 84);
+
+      drawGear(mechCtx, filmX - 14, 152, 16, 12, gearAngle, c.primary, c.bg);
+      drawGear(mechCtx, filmX + 68, 152, 16, 12, -gearAngle, c.primary, c.bg);
+      mechCtx.fillStyle = c.fg;
+      mechCtx.fillText("Rubber", 42, 148);
+      mechCtx.fillText("Pinch", 48, 160);
+      mechCtx.fillText("Rollers", 44, 172);
+
+      drawGear(mechCtx, 232, 152, 24, 18, -gearAngle, c.success, c.bg);
+      mechCtx.fillStyle = c.muted;
+      mechCtx.fillText("24T Gear", 210, 190);
+
+      mechCtx.fillStyle = c.bg;
+      mechCtx.strokeStyle = c.warning;
+      mechCtx.lineWidth = 1.6;
+      mechCtx.fillRect(210, 114, 44, 14);
+      mechCtx.strokeRect(210, 114, 44, 14);
+      for (let i = 0; i < 5; i++) {
+        const wx = 214 + ((i * 8 + (gearAngle * 14)) % 36);
+        mechCtx.beginPath();
+        mechCtx.moveTo(wx, 114);
+        mechCtx.lineTo(wx + 4, 128);
+        mechCtx.stroke();
+      }
+      mechCtx.fillStyle = c.warning;
+      mechCtx.fillText("Worm Gear", 206, 108);
+
+      mechCtx.fillStyle = c.bg;
+      mechCtx.strokeStyle = phase === "SETTLE" || phase === "CAPTURE" || phase === "IDLE" ? c.muted : c.success;
+      mechCtx.lineWidth = 1.8;
+      mechCtx.fillRect(272, 102, 68, 38);
+      mechCtx.strokeRect(272, 102, 68, 38);
+      mechCtx.beginPath();
+      mechCtx.moveTo(254, 121);
+      mechCtx.lineTo(272, 121);
+      mechCtx.stroke();
+      mechCtx.fillStyle = c.fg;
+      mechCtx.fillText("28BYJ-48", 282, 118);
+      mechCtx.fillStyle = c.muted;
+      mechCtx.fillText(phase === "SETTLE" || phase === "CAPTURE" ? "Coils OFF" : "Half-Step", 282, 132);
+
+      mechCtx.beginPath();
+      mechCtx.arc(298, 42, 24, 0, Math.PI * 2);
+      mechCtx.fillStyle = c.bg;
+      mechCtx.fill();
+      mechCtx.strokeStyle = c.primary;
+      mechCtx.lineWidth = 1.6;
+      mechCtx.stroke();
+      mechCtx.fillStyle = c.fg;
+      mechCtx.fillText("Take-Up", 279, 40);
+      mechCtx.fillStyle = c.muted;
+      mechCtx.fillText("(Slip Band)", 273, 52);
+
+      cvCtx.clearRect(0, 0, 350, 215);
+      cvCtx.fillStyle = "#111318";
+      cvCtx.fillRect(0, 0, 350, 215);
+
+      const holeOffset = filmPos % PITCH;
+      for (let y = holeOffset - PITCH; y < 240; y += PITCH) {
+        cvCtx.fillStyle = "#2b3948";
+        cvCtx.fillRect(118, y - 42, 190, 84);
+        cvCtx.fillStyle = "#4b6b8a";
+        cvCtx.beginPath();
+        cvCtx.moveTo(118, y + 42);
+        cvCtx.lineTo(175, y - 10);
+        cvCtx.lineTo(230, y + 42);
+        cvCtx.fill();
+        cvCtx.fillStyle = "#d99b52";
+        cvCtx.beginPath();
+        cvCtx.arc(268, y - 14, 12, 0, Math.PI * 2);
+        cvCtx.fill();
+        cvCtx.fillStyle = "#ffffff";
+        cvCtx.fillRect(50, y - 13, 32, 26);
+      }
+
+      cvCtx.strokeStyle = "#facc15";
+      cvCtx.lineWidth = 2;
+      cvCtx.strokeRect(30, 18, 72, 180);
+      cvCtx.fillStyle = "#facc15";
+      cvCtx.font = "10px monospace";
+      cvCtx.fillText("ROI", 34, 30);
+
+      cvCtx.strokeStyle = "#22c55e";
+      cvCtx.lineWidth = 1.5;
+      cvCtx.beginPath();
+      cvCtx.moveTo(26, TARGET_Y);
+      cvCtx.lineTo(106, TARGET_Y);
+      cvCtx.stroke();
+
+      let nearestY = null;
+      let minDist = Infinity;
+      for (let y = holeOffset - PITCH; y < 240; y += PITCH) {
+        if (y >= 24 && y <= 192) {
+          const d = Math.abs(y - TARGET_Y);
+          if (d < minDist) { minDist = d; nearestY = y; }
+        }
+      }
+      if (nearestY !== null) {
+        const locked = Math.abs(nearestY - TARGET_Y) <= 3;
+        cvCtx.strokeStyle = locked ? "#22c55e" : "#ef4444";
+        cvCtx.lineWidth = 2;
+        cvCtx.strokeRect(48, nearestY - 15, 36, 30);
+        cvCtx.fillStyle = "#facc15";
+        cvCtx.beginPath();
+        cvCtx.arc(66, nearestY, 3.5, 0, Math.PI * 2);
+        cvCtx.fill();
+
+        const err = (nearestY - TARGET_Y).toFixed(1);
+        cvCtx.fillStyle = locked ? "#22c55e" : "#facc15";
+        cvCtx.font = "11px monospace";
+        cvCtx.fillText(`err=${err >= 0 ? "+" : ""}${err}px`, 122, 20);
+      }
+
+      if (flashAlpha > 0) {
+        cvCtx.fillStyle = `rgba(255, 255, 255, ${flashAlpha})`;
+        cvCtx.fillRect(0, 0, 350, 215);
+      }
+    }
+
+    function tick() {
+      let running = true;
+      if (phase === "ADVANCE_PAST") {
+        filmPos += 3.2;
+        gearAngle += 0.14;
+        phaseTimer -= 1;
+        motorStatus.textContent = "ADVANCE PAST HOLE";
+        cvStatus.textContent = "CLEARING HOLE...";
+        if (phaseTimer <= 0) phase = "COARSE";
+      } else if (phase === "COARSE") {
+        filmPos += 2.8;
+        gearAngle += 0.12;
+        motorStatus.textContent = "COARSE STEP (8)";
+        cvStatus.textContent = "SEARCHING ROI";
+        const y = filmPos % PITCH;
+        if (y >= TARGET_Y - 18 && y <= TARGET_Y + 4) phase = "FINE";
+      } else if (phase === "FINE") {
+        const y = filmPos % PITCH;
+        const err = y - TARGET_Y;
+        motorStatus.textContent = "FINE STEP (1)";
+        cvStatus.textContent = "CENTERING...";
+        if (Math.abs(err) <= 1.2) {
+          filmPos = Math.round(filmPos / PITCH) * PITCH + (TARGET_Y % PITCH);
+          phase = "SETTLE";
+          phaseTimer = 24;
+        } else {
+          filmPos += err < 0 ? 0.65 : -0.65;
+          gearAngle += err < 0 ? 0.03 : -0.03;
+        }
+      } else if (phase === "SETTLE") {
+        phaseTimer -= 1;
+        motorStatus.textContent = "COILS OFF (0.35s)";
+        cvStatus.textContent = "LOCKED · SETTLING";
+        if (phaseTimer <= 0) {
+          phase = "CAPTURE";
+          phaseTimer = 14;
+          flashAlpha = 0.75;
+          frameCount += 1;
+          frameCounterEl.textContent = `Frames: ${frameCount}`;
+        }
+      } else if (phase === "CAPTURE") {
+        phaseTimer -= 1;
+        flashAlpha = Math.max(0, flashAlpha - 0.08);
+        motorStatus.textContent = "COILS OFF";
+        cvStatus.textContent = `SAVED frame_${String(frameCount).padStart(6, "0")}.dng`;
+        if (phaseTimer <= 0) {
+          if (autoLoop) {
+            phase = "ADVANCE_PAST";
+            phaseTimer = 14;
+          } else {
+            phase = "IDLE";
+            motorStatus.textContent = "IDLE";
+            running = false;
+          }
+        }
+      } else {
+        running = false;
+      }
+
+      drawSim();
+      if (running) {
+        animId = requestAnimationFrame(tick);
+      } else {
+        animId = null;
+      }
+    }
+
+    function startOneFrame() {
+      if (phase === "IDLE") {
+        phase = "ADVANCE_PAST";
+        phaseTimer = 14;
+        if (!animId) animId = requestAnimationFrame(tick);
+      }
+    }
+
+    btnStepFrame.addEventListener("click", () => {
+      autoLoop = false;
+      btnAuto.textContent = "Auto Loop";
+      startOneFrame();
+    });
+
+    btnAuto.addEventListener("click", () => {
+      autoLoop = !autoLoop;
+      btnAuto.textContent = autoLoop ? "Stop Loop" : "Auto Loop";
+      if (autoLoop && phase === "IDLE") startOneFrame();
+    });
+
+    window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", drawSim);
+    drawSim();
+  </script>
+</body>
+
+</html>

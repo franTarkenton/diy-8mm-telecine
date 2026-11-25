@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEGO Technic Build Booklet — Flatbed 8mm Telecine Scanner</title>
+  <style>
+    :root {
+      --page-bg: #e6f1fb;
+      --card-bg: #ffffff;
+      --border: #cbd5e1;
+      --parts-bg: #eff6ff;
+      --parts-border: #2563eb;
+      --fg: #0f172a;
+      --muted: #475569;
+      --primary: #2563eb;
+      --primary-fg: #ffffff;
+      --accent: #ef4444;
+      --success: #16a34a;
+      --success-bg: #f0fdf4;
+      --warning: #d97706;
+      --stud-bg: #e2e8f0;
+      --stud-dot: #cbd5e1;
+    }
+
+    body.dark {
+      --page-bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --parts-bg: #172554;
+      --parts-border: #60a5fa;
+      --fg: #f1f5f9;
+      --muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-fg: #ffffff;
+      --accent: #f87171;
+      --success: #4ade80;
+      --success-bg: #052e16;
+      --warning: #fbbf24;
+      --stud-bg: #1e293b;
+      --stud-dot: #334155;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 18px 16px 32px;
+      background: var(--page-bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .booklet { max-width: 1120px; margin: 0 auto; }
+
+    /* Top Header */
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .title-block h1 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
+    .title-block .sub { font-size: 12px; color: var(--muted); }
+
+    .controls { display: flex; align-items: center; gap: 8px; }
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--fg);
+      transition: all 0.12s ease;
+    }
+    button:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+    button.primary { background: var(--primary); color: var(--primary-fg); border-color: var(--primary); }
+    button.primary:hover:not(:disabled) { filter: brightness(1.08); color: var(--primary-fg); }
+
+    /* Bag & Step Scrubber */
+    .scrubber {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      margin-bottom: 14px;
+    }
+    .bag-group { display: flex; align-items: center; gap: 4px; padding-right: 8px; border-right: 1px solid var(--border); }
+    .bag-group:last-child { border-right: none; padding-right: 0; }
+    .bag-label { font-size: 11px; font-weight: 800; color: var(--muted); text-transform: uppercase; margin-right: 2px; }
+    .step-pill {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .step-pill.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .step-pill.done { background: var(--success-bg); color: var(--success); border-color: var(--success); }
+
+    /* Main Instruction Page Card */
+    .page {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    }
+
+    .page-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step-badge-wrap { display: flex; align-items: center; gap: 14px; }
+    .step-num {
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--fg);
+      min-width: 44px;
+    }
+    .bag-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 8px;
+      border-radius: 99px;
+      background: var(--parts-bg);
+      color: var(--primary);
+      border: 1px solid var(--parts-border);
+      margin-bottom: 4px;
+    }
+    .step-title { margin: 0; font-size: 18px; font-weight: 700; }
+
+    /* Classic LEGO Blue Parts Box */
+    .parts-box {
+      background: var(--parts-bg);
+      border: 2px solid var(--parts-border);
+      border-radius: 10px;
+      padding: 8px 12px;
+      min-width: 280px;
+      max-width: 560px;
+    }
+    .parts-box-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .parts-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .part-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+    .part-qty { font-weight: 800; color: var(--primary); }
+    .part-id { font-family: ui-monospace, monospace; font-size: 11px; color: var(--muted); }
+
+    /* Visuals Grid */
+    .visuals {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.25fr) minmax(280px, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .visuals { grid-template-columns: 1fr; }
+    }
+
+    .canvas-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      background: var(--page-bg);
+    }
+    .canvas-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    svg.grid-svg { width: 100%; height: auto; display: block; border-radius: 6px; }
+
+    /* Instructions Column */
+    .instr-col { display: flex; flex-direction: column; gap: 12px; }
+    .instr-list {
+      margin: 0;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13.5px;
+    }
+    .instr-list li strong { color: var(--fg); }
+
+    .fit-check {
+      background: var(--success-bg);
+      border: 1px solid var(--success);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 13px;
+    }
+    .fit-check strong { color: var(--success); }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .legend-item { display: inline-flex; align-items: center; gap: 5px; }
+    .swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+    .svg-txt { font-size: 10px; font-weight: 700; fill: var(--fg); }
+    .svg-sub { font-size: 8.5px; fill: var(--muted); }
+    .new-glow { filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.7)); }
+  </style>
+</head>
+<body>
+  <div class="booklet">
+    <div class="topbar">
+      <div class="title-block">
+        <h1>LEGO Technic Build Booklet — Flatbed 8mm Telecine</h1>
+        <div class="sub">12 stud-accurate steps · Use ← / → arrow keys or buttons to flip pages · New pieces highlighted in red</div>
+      </div>
+      <div class="controls">
+        <button id="btn-theme">Dark Mode</button>
+        <button id="btn-prev">← Prev</button>
+        <button id="btn-next" class="primary">Next Step →</button>
+      </div>
+    </div>
+
+    <div id="scrubber" class="scrubber"></div>
+
+    <div class="page">
+      <div class="page-header">
+        <div class="step-badge-wrap">
+          <div id="step-num" class="step-num">1</div>
+          <div>
+            <div id="bag-tag" class="bag-tag">BAG 1</div>
+            <h2 id="step-title" class="step-title">Baseplate &amp; Cross Anchor Rails</h2>
+          </div>
+        </div>
+        <div class="parts-box">
+          <div class="parts-box-title">Parts Needed for This Step</div>
+          <div id="parts-grid" class="parts-grid"></div>
+        </div>
+      </div>
+
+      <div class="visuals">
+        <!-- Left: Real 3D LeoCAD Isometric Step Render (with toggle to 2D schematic) -->
+        <div class="canvas-card">
+          <div class="canvas-label">
+            <span id="view-title">3D Isometric LEGO CAD Render (LeoCAD)</span>
+            <div style="display:flex;gap:6px;">
+              <button id="btn-mode-3d" class="primary" style="padding:2px 8px;font-size:11px;">3D LEGO CAD</button>
+              <button id="btn-mode-full" style="padding:2px 8px;font-size:11px;">Full Color 3D</button>
+              <button id="btn-mode-2d" style="padding:2px 8px;font-size:11px;">2D Schematic</button>
+            </div>
+          </div>
+          <div id="render-3d-wrap" style="background:#ffffff;border-radius:6px;overflow:hidden;border:1px solid var(--border);">
+            <img id="step-img" src="images/steps/step01.png" alt="3D LEGO Step Render" style="width:100%;height:auto;display:block;" />
+          </div>
+          <svg id="top-svg" viewBox="0 0 420 420" class="grid-svg" style="display:none;"></svg>
+          <div class="legend">
+            <span class="legend-item"><span class="swatch" style="background:#e11d48;border:1px solid #991b1b"></span> New bricks in THIS step</span>
+            <span class="legend-item"><span class="swatch" style="background:#94a3b8"></span> Prior steps (faded)</span>
+            <span class="legend-item">Open <code>cad/telecine_flatbed.ldr</code> in LeoCAD to orbit in 3D</span>
+          </div>
+        </div>
+
+        <!-- Right: Side View Elevation + Instructions -->
+        <div class="instr-col">
+          <div class="canvas-card">
+            <div class="canvas-label">
+              <span>Side View (Looking West from Camera)</span>
+              <span>Height Stack</span>
+            </div>
+            <svg id="side-svg" viewBox="0 0 380 185" class="grid-svg"></svg>
+          </div>
+
+          <ol id="instr-list" class="instr-list"></ol>
+
+          <div id="fit-check" class="fit-check"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const STEPS = [
+      {
+        num: 1, bag: "Bag 1 · Foundation",
+        title: "Place 48×48 Baseplate & Snap Cross Anchor Rails",
+        parts: [
+          { qty: "1×", name: "48×48 Baseplate", id: "4186" },
+          { qty: "4×", name: "1×16 Technic Brick", id: "3703" }
+        ],
+        instructions: [
+          "Place the 48×48 baseplate (~38 cm × 38 cm) flat on your table. Top = North, Bottom = South, Left = West, Right = East.",
+          "Snap two 1×16 Technic bricks (3703) running West–East across the middle (rows y=21 and y=27) to frame your Optical Light Path.",
+          "Snap two 1×16 Technic bricks (3703) running North–South (columns x=17 and x=23) to frame your Film Path."
+        ],
+        check: "Press all 4 anchor rails flush onto the studs. Nothing should rock when pushed sideways."
+      },
+      {
+        num: 2, bag: "Bag 1 · Foundation",
+        title: "Build the Supply Reel Bearing Pedestal (North)",
+        parts: [
+          { qty: "2×", name: "5×7 Technic Frame", id: "64179" },
+          { qty: "4×", name: "1×8 Technic Brick", id: "3702" },
+          { qty: "8×", name: "Black Friction Pin", id: "2780" }
+        ],
+        instructions: [
+          "At the North end (centered at x=15, y=8), snap two 1×8 Technic bricks (3702) onto the baseplate spaced 5 studs apart.",
+          "Pin one 5×7 Open-Center Frame (64179) lying FLAT horizontally across those bricks.",
+          "Build 3 bricks up at the corners and pin a second 5×7 frame directly above the first so both center holes align vertically."
+        ],
+        check: "Look straight down through the center hole of both stacked frames—the vertical axle hole must be dead plumb."
+      },
+      {
+        num: 3, bag: "Bag 1 · Foundation",
+        title: "Install the Vertical Supply Axle & Flat Supply Reel",
+        parts: [
+          { qty: "1×", name: "10L Technic Axle", id: "3737" },
+          { qty: "4×", name: "1L Technic Bush", id: "3713" },
+          { qty: "1×", name: "Painter's Tape", id: "8mm hub" }
+        ],
+        instructions: [
+          "Drop the vertical 10L axle (3737) down through both stacked 5×7 frames at (x=15, y=8).",
+          "Slide bushings (3713) onto the axle right above the top frame to set your Film Plane Height (~4.5 cm above the baseplate).",
+          "Wrap 2–3 neat turns of painter's tape around the upper axle tip so your 8mm Supply Reel sits snugly and FLAT like a vinyl record."
+        ],
+        check: "Spin the Supply Reel by hand—it should sit level and turn smoothly with slight gentle drag. Its East rim aligns with x=20!"
+      },
+      {
+        num: 4, bag: "Bag 1 · Foundation",
+        title: "Build the Matching Take-Up Reel Turntable (South)",
+        parts: [
+          { qty: "2×", name: "5×7 Technic Frame", id: "64179" },
+          { qty: "4×", name: "1×8 Technic Brick", id: "3702" },
+          { qty: "1×", name: "10L Technic Axle", id: "3737" },
+          { qty: "1×", name: "Wedge Belt Pulley", id: "4185" },
+          { qty: "4×", name: "1L Bush + 8× Pin", id: "3713" }
+        ],
+        instructions: [
+          "Build the exact same stacked 5×7 frame pedestal at the South end (centered at x=15, y=40).",
+          "Before dropping the 10L axle all the way down, thread one Wedge Belt Pulley (4185) near the bottom (~1 cm above the baseplate).",
+          "Add bushings at the EXACT same height as Step 3 and seat your flat Take-Up Reel on top."
+        ],
+        check: "Hold a ruler from the North reel's East rim to the South reel's East rim—both line up straight along x=20 at the exact same height!"
+      },
+      {
+        num: 5, bag: "Bag 2 · Film Drive",
+        title: "Assemble the Driven Pinch Roller & 24T Gear Shaft",
+        parts: [
+          { qty: "2×", name: "5×7 Technic Frame", id: "64179" },
+          { qty: "1×", name: "10L Technic Axle", id: "3737" },
+          { qty: "1×", name: "24-Tooth Gear", id: "3648" },
+          { qty: "1×", name: "Rubber Tire + Wheel", id: "56902" },
+          { qty: "1×", name: "Wedge Belt Pulley", id: "4185" }
+        ],
+        instructions: [
+          "Anchor two stacked 5×7 frames just South of the optical axis (centered at x=22, y=31) so the shaft sits 1 tire-radius East of x=20.",
+          "Thread the vertical 10L axle from bottom to top: (1) Pulley 4185 at ~1 cm, (2) 24T Gear 3648 in the middle, (3) Smooth Rubber Tire at Film Plane Height.",
+          "Lock each piece vertically with bushings (3713) so nothing slides up or down."
+        ],
+        check: "Spin the top rubber tire—its West edge sits right on the x=20 film line, and the 24T gear + bottom pulley spin together smoothly."
+      },
+      {
+        num: 6, bag: "Bag 2 · Film Drive",
+        title: "Mesh the Self-Locking Worm Gear & 28BYJ-48 Stepper",
+        parts: [
+          { qty: "1×", name: "2L Worm Gear", id: "4716" },
+          { qty: "1×", name: "6L Technic Axle", id: "3706" },
+          { qty: "4×", name: "1×4 Technic Brick", id: "3701" },
+          { qty: "1×", name: "28BYJ-48 + Coupler", id: "5mm-D" }
+        ],
+        instructions: [
+          "Slide the horizontal 6L axle (3706) through the gearbox frame at the exact height of the 24T gear, threading the 2L Worm Gear (4716) between two bushings.",
+          "Press the 5mm-to-Technic coupler onto the East end of the worm-gear axle and insert the 28BYJ-48 motor shaft.",
+          "Build a small 1×4 Technic brick cradle underneath the motor body and lock its mounting ears down with 2 zip-ties."
+        ],
+        check: "Turn the worm axle by hand—the rubber roller turns slowly. Try turning the rubber roller by hand—it MUST lock solid (self-locking brake!)."
+      },
+      {
+        num: 7, bag: "Bag 2 · Film Drive",
+        title: "Mount the Spring-Loaded Idler Pinch Roller",
+        parts: [
+          { qty: "2×", name: "1×7 Liftarm (Yellow)", id: "32524" },
+          { qty: "2×", name: "Gray Frictionless Pin", id: "3673" },
+          { qty: "1×", name: "4L Technic Axle", id: "3705" },
+          { qty: "1×", name: "Rubber Tire + Wheel", id: "56902" },
+          { qty: "1×", name: "Small Rubber Band", id: "#16" }
+        ],
+        instructions: [
+          "On the West side of the film line (x=18, y=31), hinge a horizontal 1×7 liftarm (32524) onto the gearbox frame using a gray frictionless pin (3673).",
+          "Mount the second Smooth Rubber Tire on a vertical 4L axle (3705) at the free end of the arm, matching Film Plane Height.",
+          "Stretch a small rubber band from the free end of the arm to a fixed pin on the gearbox so the idler tire presses gently East against the driven tire."
+        ],
+        check: "Slide a sacrificial strip of 8mm film between the two vertical tires and turn the worm shaft—film should advance smoothly South without slipping."
+      },
+      {
+        num: 8, bag: "Bag 2 · Film Drive",
+        title: "Connect the Underneath Slip-Clutch Take-Up Band",
+        parts: [
+          { qty: "1×", name: "Thin Rubber Band", id: "#16" }
+        ],
+        instructions: [
+          "Reaching underneath the film plane (~1 cm above the baseplate), loop a thin, lightly tensioned rubber band between the Driven Roller's bottom pulley (x=22, y=31) and the Take-Up Reel's bottom pulley (x=15, y=40).",
+          "Make sure the band clears all bricks and axles along its diagonal path."
+        ],
+        check: "Turn the worm shaft—the Take-Up Reel turns gently. Hold the Take-Up Reel lightly with one finger: the band must slip easily without stalling the rollers."
+      },
+      {
+        num: 9, bag: "Bag 3 · Optics Gate",
+        title: "Build the Smooth-Tile Film Gate at Center (+)",
+        parts: [
+          { qty: "8×", name: "1×4 Black Smooth Tile", id: "2431" },
+          { qty: "4×", name: "1×6 Black Smooth Tile", id: "6636" },
+          { qty: "8×", name: "1×2 Black Brick", id: "3004" },
+          { qty: "6×", name: "1×2 Black Plate", id: "3023" }
+        ],
+        instructions: [
+          "Right at the center + intersection (x=20, y=24), stack black bricks up to the bottom edge of the 8mm film and cap with smooth 1×6 black tiles (6636) so the film edge glides on glassy plastic.",
+          "Build vertical black walls on the West and East sides of x=20 faced with smooth 1×4 tiles (2431), leaving a ~1 mm vertical channel for the film.",
+          "Leave a clean 8mm × 9.6mm window in the center (the Aperture Mask) to illuminate only 1 frame + its adjacent sprocket hole."
+        ],
+        check: "Pull a test strip of 8mm film (including a tape splice!) horizontally through the gate—it must slide effortlessly with zero snagging."
+      },
+      {
+        num: 10, bag: "Bag 3 · Optics Gate",
+        title: "Install the 3mm Diffuser Slot & Black Light Tunnel",
+        parts: [
+          { qty: "24×", name: "2×4 Black Brick", id: "3001" },
+          { qty: "8×", name: "1×2 Black Brick", id: "3004" },
+          { qty: "12×", name: "1×4 Black Brick", id: "3010" },
+          { qty: "1×", name: "3mm Acrylic Diffuser", id: "#2447" }
+        ],
+        instructions: [
+          "Just 3–5 mm West of the Film Gate (x=16, y=24), build two vertical black-brick rails spaced 1 plate (3.2 mm) apart and slide your 3mm milky-white acrylic diffuser straight down.",
+          "Extending straight East from the Film Gate (x=22 to x=34, centered on y=24), build a hollow rectangular black-brick tunnel (~4 studs wide × 4 bricks tall inside)."
+        ],
+        check: "Shine a flashlight from the West into the diffuser and peek down the East tunnel—you should see only the evenly glowing rectangular aperture window."
+      },
+      {
+        num: 11, bag: "Bag 4 · Camera & LED",
+        title: "Mount the 5600K LED Cradle & RPi HQ Camera Cradle",
+        parts: [
+          { qty: "4×", name: "1×4 Technic Brick", id: "3701" },
+          { qty: "4×", name: "1×5 Liftarm", id: "32316" },
+          { qty: "16×", name: "2×4 Black Plate", id: "3020" },
+          { qty: "2×", name: "Zip-Ties + LED + Cam", id: "IMX477" }
+        ],
+        instructions: [
+          "Far West (x=6, y=24): Leave a 2–3 cm air gap West of the diffuser (so LED diodes blend evenly), then build a square 3-sided black brick cradle holding your Ulanzi VL49 LED facing straight East (5600K, USB-C plugged in).",
+          "Far East (x=36..43, y=24): Stack 2×4 black plates (3020) until the 35mm C-mount lens center aligns dead-center with the Film Gate window (each plate = 3.2 mm).",
+          "Frame the HQ Camera PCB with 1×5 liftarms and secure it solidly with 2 zip-ties through its corner mounting holes."
+        ],
+        check: "Sight along the West–East axis: LED, Diffuser, Film Gate, Tunnel, and 35mm Lens must form one dead-straight horizontal line."
+      },
+      {
+        num: 12, bag: "Bag 4 · Camera & LED",
+        title: "Thread 8mm Film, Wire ULN2003 & Lock Focus",
+        parts: [
+          { qty: "1×", name: "8mm Test Film Strip", id: "Leader" },
+          { qty: "1×", name: "ULN2003 + 6× DuPont", id: "wiring.md" },
+          { qty: "1×", name: "RPi 4/5 + USB 3 SSD", id: "scanner.py" }
+        ],
+        instructions: [
+          "NOTE: The translucent amber strip shown in Step 12 is NOT a LEGO piece—it represents your actual 8mm movie film! It is not anchored to bricks; it unwinds off the blue Supply Reel, slides freely through the Film Gate, gets gripped by the two rubber Pinch Rollers, and winds onto the green Take-Up Reel.",
+          "Thread a sacrificial 8mm test strip tangent off the Supply Reel (col 13.5) → straight South through the Film Gate → between the Pinch Rollers → tangent onto the Take-Up Reel.",
+          "Wire ULN2003 IN1–IN4 to Pi GPIO 17, 27, 22, 23 (see docs/wiring.md), run `uv run python src/scanner.py --calibrate --show-debug`, focus on film grain, and tighten the lens locking thumbscrews!"
+        ],
+        check: "Sprocket hole centers cleanly on the green target line in --calibrate mode and film advances smoothly with zero jitter. Ready to scan!"
+      }
+    ];
+
+    let currentStep = 0; // 0-indexed (0..11)
+
+    const scrubberEl = document.getElementById("scrubber");
+    const stepNumEl = document.getElementById("step-num");
+    const bagTagEl = document.getElementById("bag-tag");
+    const stepTitleEl = document.getElementById("step-title");
+    const partsGridEl = document.getElementById("parts-grid");
+    const instrListEl = document.getElementById("instr-list");
+    const fitCheckEl = document.getElementById("fit-check");
+    const topSvg = document.getElementById("top-svg");
+    const sideSvg = document.getElementById("side-svg");
+    const stepImg = document.getElementById("step-img");
+    const render3dWrap = document.getElementById("render-3d-wrap");
+    const viewTitle = document.getElementById("view-title");
+    const btnMode3d = document.getElementById("btn-mode-3d");
+    const btnModeFull = document.getElementById("btn-mode-full");
+    const btnMode2d = document.getElementById("btn-mode-2d");
+    const btnPrev = document.getElementById("btn-prev");
+    const btnNext = document.getElementById("btn-next");
+    const btnTheme = document.getElementById("btn-theme");
+    let viewMode = "3d"; // "3d" | "full" | "2d"
+
+    // Coordinate helper: 48 studs mapped into 420x420 SVG (18px margin, 8px per stud)
+    const S = 8;
+    const M = 18;
+    const gx = (studX) => M + studX * S;
+    const gy = (studY) => M + studY * S;
+
+    function strokeFor(stepAdded, cur, baseStroke) {
+      if (stepAdded === cur) return "#ef4444";
+      return baseStroke;
+    }
+    function clsFor(stepAdded, cur) {
+      return stepAdded === cur ? 'class="new-glow"' : "";
+    }
+    function fillFor(stepAdded, cur, normalFill, newFill) {
+      return stepAdded === cur ? (newFill || "rgba(239,68,68,0.22)") : normalFill;
+    }
+
+    function renderTopSvg(curStepNum) {
+      const dark = document.body.classList.contains("dark");
+      const baseFill = dark ? "#1e293b" : "#cbd5e1";
+      const studDot = dark ? "#334155" : "#94a3b8";
+      const builtGray = dark ? "#475569" : "#64748b";
+      const darkBrick = dark ? "#0f172a" : "#1e293b";
+      const txtCol = dark ? "#f1f5f9" : "#0f172a";
+
+      let out = `<defs>
+        <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444" />
+        </marker>
+        <marker id="arr-light" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b" />
+        </marker>
+        <marker id="arr-film" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#3b82f6" />
+        </marker>
+      </defs>`;
+
+      // Step 1: 48x48 Baseplate + subtle stud grid (every 4 studs for clarity)
+      out += `<rect x="${M}" y="${M}" width="${48*S}" height="${48*S}" rx="4" fill="${baseFill}" stroke="${curStepNum===1?'#ef4444':'#64748b'}" stroke-width="${curStepNum===1?2.5:1.2}" />`;
+      for (let x = 2; x < 48; x += 4) {
+        for (let y = 2; y < 48; y += 4) {
+          out += `<circle cx="${gx(x)}" cy="${gy(y)}" r="1.3" fill="${studDot}" />`;
+        }
+      }
+
+      // Axis guides
+      out += `<line x1="${gx(2)}" y1="${gy(24)}" x2="${gx(46)}" y2="${gy(24)}" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4 3" opacity="0.55" />`;
+      out += `<line x1="${gx(20)}" y1="${gy(2)}" x2="${gx(20)}" y2="${gy(46)}" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4 3" opacity="0.55" />`;
+      out += `<text x="${gx(24)}" y="12" text-anchor="middle" fill="${txtCol}" font-size="9" font-weight="700">NORTH (Supply)</text>`;
+      out += `<text x="${gx(24)}" y="415" text-anchor="middle" fill="${txtCol}" font-size="9" font-weight="700">SOUTH (Take-Up)</text>`;
+
+      // Step 1: 4x 1x16 Anchor Rails
+      if (curStepNum >= 1) {
+        const st = strokeFor(1, curStepNum, "#334155");
+        const fl = fillFor(1, curStepNum, builtGray, "#ef4444");
+        out += `<g ${clsFor(1, curStepNum)}>
+          <rect x="${gx(12)}" y="${gy(20.5)}" width="${16*S}" height="${S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.2" />
+          <rect x="${gx(12)}" y="${gy(26.5)}" width="${16*S}" height="${S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.2" />
+          <rect x="${gx(16.5)}" y="${gy(16)}" width="${S}" height="${16*S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.2" />
+          <rect x="${gx(22.5)}" y="${gy(16)}" width="${S}" height="${16*S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.2" />
+        </g>`;
+      }
+
+      // Step 2: North Supply Pedestal (5x7 frame centered at x=15, y=8)
+      if (curStepNum >= 2) {
+        const st = strokeFor(2, curStepNum, "#334155");
+        const fl = fillFor(2, curStepNum, "#94a3b8", "rgba(239,68,68,0.35)");
+        out += `<g ${clsFor(2, curStepNum)}>
+          <rect x="${gx(11.5)}" y="${gy(5.5)}" width="${7*S}" height="${5*S}" rx="2" fill="${fl}" stroke="${st}" stroke-width="2" />
+          <rect x="${gx(12.5)}" y="${gy(6.5)}" width="${5*S}" height="${3*S}" rx="1" fill="${baseFill}" stroke="${st}" stroke-width="1" />
+        </g>`;
+      }
+
+      // Step 3: Supply Axle + Flat Supply Reel (centered x=15, y=8, radius=5 studs so East rim = x=20!)
+      if (curStepNum >= 3) {
+        const st = strokeFor(3, curStepNum, "#2563eb");
+        const fl = fillFor(3, curStepNum, "rgba(59,130,246,0.16)", "rgba(239,68,68,0.22)");
+        out += `<g ${clsFor(3, curStepNum)}>
+          <circle cx="${gx(15)}" cy="${gy(8)}" r="${5*S}" fill="${fl}" stroke="${st}" stroke-width="2" />
+          <circle cx="${gx(15)}" cy="${gy(8)}" r="${3.2*S}" fill="none" stroke="${st}" stroke-width="1" stroke-dasharray="3 2" />
+          <circle cx="${gx(15)}" cy="${gy(8)}" r="5" fill="${darkBrick}" stroke="${st}" stroke-width="1.5" />
+          <text x="${gx(15)}" y="${gy(8)+3}" text-anchor="middle" fill="#fff" font-size="7" font-weight="700">+</text>
+          <text x="${gx(7)}" y="${gy(8)+3}" text-anchor="middle" fill="${txtCol}" font-size="9" font-weight="700">Supply</text>
+        </g>`;
+      }
+
+      // Step 4: South Take-Up Pedestal + Flat Take-Up Reel (centered x=15, y=40, radius=5 studs -> East rim = x=20!)
+      if (curStepNum >= 4) {
+        const st = strokeFor(4, curStepNum, "#0d9488");
+        const fl = fillFor(4, curStepNum, "rgba(20,184,166,0.16)", "rgba(239,68,68,0.22)");
+        out += `<g ${clsFor(4, curStepNum)}>
+          <rect x="${gx(11.5)}" y="${gy(37.5)}" width="${7*S}" height="${5*S}" rx="2" fill="none" stroke="${st}" stroke-width="1.5" />
+          <circle cx="${gx(15)}" cy="${gy(40)}" r="${5*S}" fill="${fl}" stroke="${st}" stroke-width="2" />
+          <circle cx="${gx(15)}" cy="${gy(40)}" r="${2.6*S}" fill="none" stroke="${st}" stroke-width="1" stroke-dasharray="3 2" />
+          <circle cx="${gx(15)}" cy="${gy(40)}" r="5" fill="${darkBrick}" stroke="${st}" stroke-width="1.5" />
+          <text x="${gx(7)}" y="${gy(40)+3}" text-anchor="middle" fill="${txtCol}" font-size="9" font-weight="700">Take-Up</text>
+        </g>`;
+      }
+
+      // Step 5: Gearbox Frame + Driven Pinch Roller (center x=22, y=31, radius=2 studs -> West rim touches x=20!)
+      if (curStepNum >= 5) {
+        const st = strokeFor(5, curStepNum, "#16a34a");
+        const fl = fillFor(5, curStepNum, "rgba(22,163,74,0.2)", "rgba(239,68,68,0.28)");
+        out += `<g ${clsFor(5, curStepNum)}>
+          <rect x="${gx(19.5)}" y="${gy(28.5)}" width="${7*S}" height="${5*S}" rx="2" fill="none" stroke="${st}" stroke-width="1.8" />
+          <circle cx="${gx(22)}" cy="${gy(31)}" r="${2*S}" fill="${darkBrick}" stroke="${st}" stroke-width="2.2" />
+          <circle cx="${gx(22)}" cy="${gy(31)}" r="4" fill="${st}" />
+          <text x="${gx(31)}" y="${gy(30)}" fill="${txtCol}" font-size="8.5" font-weight="700">Driven Roller</text>
+        </g>`;
+      }
+
+      // Step 6: Worm Gear + 28BYJ-48 Stepper (East of 24T gear at x=25..33, y=31)
+      if (curStepNum >= 6) {
+        const st = strokeFor(6, curStepNum, "#d97706");
+        const fl = fillFor(6, curStepNum, "#94a3b8", "rgba(239,68,68,0.35)");
+        out += `<g ${clsFor(6, curStepNum)}>
+          <rect x="${gx(24)}" y="${gy(30.2)}" width="${3*S}" height="${1.6*S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.8" />
+          <line x1="${gx(27)}" y1="${gy(31)}" x2="${gx(29)}" y2="${gy(31)}" stroke="${st}" stroke-width="2.5" />
+          <rect x="${gx(29)}" y="${gy(29.2)}" width="${5*S}" height="${3.6*S}" rx="3" fill="${fl}" stroke="${st}" stroke-width="1.8" />
+          <text x="${gx(31.5)}" y="${gy(34.5)}" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">28BYJ-48 + Worm</text>
+        </g>`;
+      }
+
+      // Step 7: Spring-Loaded Idler Pinch Roller + Yellow 1x7 Arm (West of x=20 -> center x=18, y=31)
+      if (curStepNum >= 7) {
+        const st = strokeFor(7, curStepNum, "#eab308");
+        out += `<g ${clsFor(7, curStepNum)}>
+          <rect x="${gx(16)}" y="${gy(30.2)}" width="${2*S}" height="${6*S}" rx="3" fill="#facc15" stroke="${st}" stroke-width="1.8" transform="rotate(-12 ${gx(18)} ${gy(31)})" />
+          <circle cx="${gx(18)}" cy="${gy(31)}" r="${2*S}" fill="${darkBrick}" stroke="${st}" stroke-width="2.2" />
+          <circle cx="${gx(18)}" cy="${gy(31)}" r="3.5" fill="#facc15" />
+          <line x1="${gx(18)}" y1="${gy(35)}" x2="${gx(22)}" y2="${gy(34)}" stroke="#ef4444" stroke-width="2" stroke-dasharray="2 2" />
+          <text x="${gx(11)}" y="${gy(31.5)}" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">Spring Idler</text>
+        </g>`;
+      }
+
+      // Step 8: Underneath Slip-Clutch Rubber Band (22,31) -> (15,40)
+      if (curStepNum >= 8) {
+        const st = strokeFor(8, curStepNum, "#0d9488");
+        out += `<g ${clsFor(8, curStepNum)}>
+          <line x1="${gx(22)}" y1="${gy(31)}" x2="${gx(15)}" y2="${gy(40)}" stroke="${st}" stroke-width="2.5" stroke-dasharray="4 2" />
+          <text x="${gx(25)}" y="${gy(38)}" fill="${st}" font-size="8.5" font-weight="700">Slip-Clutch Band</text>
+        </g>`;
+      }
+
+      // Step 9: Smooth-Tile Film Gate at Center Intersection (x=20, y=24)
+      if (curStepNum >= 9) {
+        const st = strokeFor(9, curStepNum, "#0f172a");
+        const fl = fillFor(9, curStepNum, darkBrick, "#ef4444");
+        out += `<g ${clsFor(9, curStepNum)}>
+          <rect x="${gx(18.2)}" y="${gy(21.5)}" width="${1.4*S}" height="${5*S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.5" />
+          <rect x="${gx(20.4)}" y="${gy(21.5)}" width="${1.4*S}" height="${5*S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.5" />
+          <text x="${gx(20)}" y="${gy(20)}" text-anchor="middle" fill="${txtCol}" font-size="9" font-weight="700">Film Gate</text>
+        </g>`;
+      }
+
+      // Step 10: 3mm Acrylic Diffuser (x=16, y=24) + Black Brick Light Tunnel (x=22..34, y=24)
+      if (curStepNum >= 10) {
+        const st = strokeFor(10, curStepNum, "#0f172a");
+        const fl = fillFor(10, curStepNum, darkBrick, "rgba(239,68,68,0.35)");
+        out += `<g ${clsFor(10, curStepNum)}>
+          <rect x="${gx(15.5)}" y="${gy(21.5)}" width="${0.9*S}" height="${5*S}" rx="1" fill="#ffffff" stroke="${st}" stroke-width="1.6" />
+          <text x="${gx(14.5)}" y="${gy(28.5)}" text-anchor="middle" fill="${txtCol}" font-size="8" font-weight="700">Diffuser</text>
+          <rect x="${gx(22)}" y="${gy(22)}" width="${12*S}" height="${4*S}" rx="2" fill="${fl}" stroke="${st}" stroke-width="1.8" />
+          <text x="${gx(28)}" y="${gy(24.4)}" text-anchor="middle" fill="#fff" font-size="8.5" font-weight="700">Black Light Tunnel</text>
+        </g>`;
+      }
+
+      // Step 11: 5600K LED (Far West x=6, y=24) + 35mm Lens & HQ Camera (Far East x=35..43, y=24)
+      if (curStepNum >= 11) {
+        const st = strokeFor(11, curStepNum, "#16a34a");
+        out += `<g ${clsFor(11, curStepNum)}>
+          <rect x="${gx(4.5)}" y="${gy(21)}" width="${3*S}" height="${6*S}" rx="2" fill="${darkBrick}" stroke="${curStepNum===11?'#ef4444':'#f59e0b'}" stroke-width="2" />
+          <text x="${gx(6)}" y="${gy(29)}" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">5600K LED</text>
+          <rect x="${gx(34.5)}" y="${gy(22.5)}" width="${4.5*S}" height="${3*S}" rx="2" fill="${darkBrick}" stroke="${st}" stroke-width="1.8" />
+          <rect x="${gx(39.5)}" y="${gy(21)}" width="${3*S}" height="${6*S}" rx="2" fill="#16a34a" stroke="${st}" stroke-width="2" />
+          <text x="${gx(40)}" y="${gy(29)}" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">35mm + HQ Cam</text>
+        </g>`;
+      }
+
+      // Step 12: 8mm Film Strip (exact tangent x=20 from y=8 to y=40) + Light Beam
+      if (curStepNum >= 12) {
+        out += `<g class="new-glow">
+          <line x1="${gx(7.5)}" y1="${gy(24)}" x2="${gx(34.5)}" y2="${gy(24)}" stroke="#f59e0b" stroke-width="2.2" stroke-dasharray="5 3" marker-end="url(#arr-light)" />
+          <line x1="${gx(20)}" y1="${gy(8)}" x2="${gx(20)}" y2="${gy(40)}" stroke="#3b82f6" stroke-width="3.2" />
+          <line x1="${gx(20)}" y1="${gy(14)}" x2="${gx(20)}" y2="${gy(17)}" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arr-film)" />
+          <line x1="${gx(20)}" y1="${gy(34)}" x2="${gx(20)}" y2="${gy(37)}" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arr-film)" />
+        </g>`;
+      }
+
+      topSvg.innerHTML = out;
+    }
+
+    function renderSideSvg(curStepNum) {
+      const dark = document.body.classList.contains("dark");
+      const txtCol = dark ? "#f1f5f9" : "#0f172a";
+      const mutCol = dark ? "#94a3b8" : "#64748b";
+      const baseFill = dark ? "#334155" : "#cbd5e1";
+
+      let out = "";
+      // Baseplate
+      out += `<rect x="14" y="156" width="352" height="14" rx="2" fill="${baseFill}" stroke="${curStepNum===1?'#ef4444':'#64748b'}" stroke-width="${curStepNum===1?2:1.2}" />`;
+      out += `<text x="190" y="166" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">48×48 Baseplate (Flat on Table)</text>`;
+
+      // Film plane dashed reference line
+      out += `<line x1="18" y1="68" x2="362" y2="68" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 3" opacity="0.45" />`;
+      out += `<text x="190" y="18" text-anchor="middle" fill="${mutCol}" font-size="8.5">Film Plane (~4.5 cm above baseplate)</text>`;
+
+      // Step 2 & 3: North Supply Axle + Flat Supply Reel (x=60)
+      if (curStepNum >= 2) {
+        out += `<rect x="44" y="96" width="32" height="60" rx="2" fill="none" stroke="${curStepNum===2?'#ef4444':mutCol}" stroke-width="${curStepNum===2?2:1.2}" />`;
+      }
+      if (curStepNum >= 3) {
+        const st = curStepNum === 3 ? "#ef4444" : "#2563eb";
+        out += `<rect x="57" y="42" width="6" height="114" fill="${mutCol}" />`;
+        out += `<rect x="24" y="54" width="72" height="5" rx="1.5" fill="#fff" stroke="${st}" stroke-width="1.6" />`;
+        out += `<rect x="24" y="78" width="72" height="5" rx="1.5" fill="#fff" stroke="${st}" stroke-width="1.6" />`;
+        out += `<rect x="36" y="59" width="48" height="19" fill="rgba(59,130,246,0.28)" />`;
+        out += `<text x="60" y="38" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">Supply Reel</text>`;
+      }
+
+      // Step 4: South Take-Up Axle + Pulley + Flat Take-Up Reel (x=320)
+      if (curStepNum >= 4) {
+        const st = curStepNum === 4 ? "#ef4444" : "#0d9488";
+        out += `<rect x="304" y="96" width="32" height="60" rx="2" fill="none" stroke="${st}" stroke-width="${curStepNum===4?2:1.2}" />`;
+        out += `<rect x="317" y="42" width="6" height="114" fill="${mutCol}" />`;
+        out += `<rect x="308" y="138" width="24" height="7" rx="2" fill="rgba(20,184,166,0.4)" stroke="${st}" stroke-width="1.4" />`;
+        out += `<rect x="284" y="54" width="72" height="5" rx="1.5" fill="#fff" stroke="${st}" stroke-width="1.6" />`;
+        out += `<rect x="284" y="78" width="72" height="5" rx="1.5" fill="#fff" stroke="${st}" stroke-width="1.6" />`;
+        out += `<rect x="296" y="59" width="48" height="19" fill="rgba(20,184,166,0.28)" />`;
+        out += `<text x="320" y="38" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">Take-Up Reel</text>`;
+      }
+
+      // Step 5, 6, 7: Pinch Roller Shaft (x=245) + 24T Gear + Worm + Pulley
+      if (curStepNum >= 5) {
+        const st = curStepNum === 5 ? "#ef4444" : "#16a34a";
+        out += `<rect x="242" y="48" width="6" height="108" fill="${mutCol}" />`;
+        out += `<rect x="234" y="56" width="22" height="24" rx="3" fill="#1e293b" stroke="${st}" stroke-width="1.8" />`;
+        out += `<rect x="228" y="112" width="34" height="10" rx="2" fill="rgba(22,163,74,0.3)" stroke="${st}" stroke-width="1.5" />`;
+        out += `<rect x="233" y="138" width="24" height="7" rx="2" fill="rgba(20,184,166,0.4)" stroke="${st}" stroke-width="1.4" />`;
+        out += `<text x="245" y="42" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">Rollers</text>`;
+      }
+      if (curStepNum >= 6) {
+        const st = curStepNum === 6 ? "#ef4444" : "#d97706";
+        out += `<rect x="196" y="110" width="30" height="14" rx="2" fill="rgba(217,119,6,0.25)" stroke="${st}" stroke-width="1.6" />`;
+        out += `<text x="210" y="105" text-anchor="middle" fill="${st}" font-size="7.5" font-weight="700">Worm+Motor</text>`;
+      }
+      if (curStepNum >= 8) {
+        const st = curStepNum === 8 ? "#ef4444" : "#0d9488";
+        out += `<line x1="245" y1="141" x2="320" y2="141" stroke="${st}" stroke-width="2.2" stroke-dasharray="3 2" />`;
+        out += `<text x="282" y="152" text-anchor="middle" fill="${st}" font-size="7.5" font-weight="700">Slip Band</text>`;
+      }
+
+      // Step 9 & 10: Center Film Gate (x=175)
+      if (curStepNum >= 9) {
+        const st = curStepNum === 9 ? "#ef4444" : "#f59e0b";
+        out += `<rect x="158" y="82" width="34" height="74" rx="2" fill="#1e293b" stroke="${st}" stroke-width="1.5" />`;
+        out += `<rect x="163" y="52" width="24" height="30" rx="2" fill="none" stroke="${st}" stroke-width="2" />`;
+        out += `<text x="175" y="44" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">Gate</text>`;
+      }
+
+      // Step 12: Straight Horizontal 8mm Film Ribbon (zero twist!)
+      if (curStepNum >= 12) {
+        out += `<rect x="84" y="59" width="212" height="19" fill="rgba(245,158,11,0.28)" stroke="#3b82f6" stroke-width="1.8" />`;
+        for (let sx = 94; sx < 290; sx += 18) {
+          out += `<rect x="${sx}" y="61" width="5" height="3.5" fill="${txtCol}" />`;
+        }
+      }
+
+      sideSvg.innerHTML = out;
+    }
+
+    function render() {
+      const s = STEPS[currentStep];
+      stepNumEl.textContent = s.num;
+      bagTagEl.textContent = s.bag;
+      stepTitleEl.textContent = s.title;
+
+      partsGridEl.innerHTML = s.parts.map(p =>
+        `<span class="part-chip"><span class="part-qty">${p.qty}</span><span>${p.name}</span><span class="part-id">(${p.id})</span></span>`
+      ).join("");
+
+      instrListEl.innerHTML = s.instructions.map(t => `<li>${t}</li>`).join("");
+      fitCheckEl.innerHTML = `<strong>Fit Check:</strong> ${s.check}`;
+
+      btnPrev.disabled = currentStep === 0;
+      btnNext.disabled = currentStep === STEPS.length - 1;
+      btnNext.textContent = currentStep === STEPS.length - 1 ? "Done!" : "Next Step →";
+
+      // Update scrubber pills
+      const bags = [
+        { label: "Bag 1", range: [0, 1, 2, 3] },
+        { label: "Bag 2", range: [4, 5, 6, 7] },
+        { label: "Bag 3", range: [8, 9] },
+        { label: "Bag 4", range: [10, 11] }
+      ];
+      scrubberEl.innerHTML = bags.map(b =>
+        `<div class="bag-group"><span class="bag-label">${b.label}</span>` +
+        b.range.map(idx => {
+          const cls = idx === currentStep ? "step-pill active" : (idx < currentStep ? "step-pill done" : "step-pill");
+          return `<button class="${cls}" data-idx="${idx}">${idx + 1}</button>`;
+        }).join("") + `</div>`
+      ).join("");
+
+      scrubberEl.querySelectorAll(".step-pill").forEach(btn => {
+        btn.addEventListener("click", () => {
+          currentStep = Number(btn.getAttribute("data-idx"));
+          render();
+        });
+      });
+
+      const pad = String(s.num).padStart(2, "0");
+      if (viewMode === "3d") {
+        stepImg.src = `images/steps/step${pad}.png`;
+        render3dWrap.style.display = "block";
+        topSvg.style.display = "none";
+        viewTitle.textContent = `3D Isometric LEGO CAD — Step ${s.num} (New Pieces Highlighted)`;
+      } else if (viewMode === "full") {
+        stepImg.src = "images/steps/complete_3d.png";
+        render3dWrap.style.display = "block";
+        topSvg.style.display = "none";
+        viewTitle.textContent = "3D Isometric LEGO CAD — Finished Full-Color Model";
+      } else {
+        render3dWrap.style.display = "none";
+        topSvg.style.display = "block";
+        viewTitle.textContent = "2D Top-Down Stud-Grid Schematic";
+      }
+      btnMode3d.classList.toggle("primary", viewMode === "3d");
+      btnModeFull.classList.toggle("primary", viewMode === "full");
+      btnMode2d.classList.toggle("primary", viewMode === "2d");
+
+      renderTopSvg(s.num);
+      renderSideSvg(s.num);
+    }
+
+    btnMode3d.addEventListener("click", () => { viewMode = "3d"; render(); });
+    btnModeFull.addEventListener("click", () => { viewMode = "full"; render(); });
+    btnMode2d.addEventListener("click", () => { viewMode = "2d"; render(); });
+
+    btnPrev.addEventListener("click", () => { if (currentStep > 0) { currentStep--; render(); } });
+    btnNext.addEventListener("click", () => { if (currentStep < STEPS.length - 1) { currentStep++; render(); } });
+    btnTheme.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      btnTheme.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
+      render();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" && currentStep < STEPS.length - 1) { currentStep++; render(); }
+      if (e.key === "ArrowLeft" && currentStep > 0) { currentStep--; render(); }
+    });
+
+    render();
+  </script>
+</body>
+</html>

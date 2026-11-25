@@ -1,0 +1,18 @@
+# Python / uv
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Raw film captures & rendered video outputs
+captures/
+*.dng
+*.DNG
+*.mp4
+*.mov
+
+# OS / Editor temp files
+.DS_Store
+Thumbs.db
+*.swp
+*~

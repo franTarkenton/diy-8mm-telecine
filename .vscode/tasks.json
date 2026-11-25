@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Open Current File in External Viewer (Brave / LeoCAD)",
+      "type": "shell",
+      "command": "case \"${fileExtname}\" in .html|.htm) setsid -f /usr/bin/brave-browser \"${file}\" >/dev/null 2>&1 ;; .md|.markdown) uv run --with markdown python \"${workspaceFolder}/.vscode/md_to_brave.py\" \"${file}\" ;; .ldr|.mpd) setsid -f /usr/bin/leocad -l /usr/share/ldraw \"${file}\" >/dev/null 2>&1 ;; *) setsid -f /usr/bin/xdg-open \"${file}\" >/dev/null 2>&1 ;; esac",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Open 3D Model in LeoCAD",
+      "type": "shell",
+      "command": "setsid -f /usr/bin/leocad -l /usr/share/ldraw \"${workspaceFolder}/cad/telecine_flatbed.ldr\" >/dev/null 2>&1",
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared",
+        "close": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
