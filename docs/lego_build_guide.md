@@ -11,14 +11,15 @@ This manual uses a **Flatbed Layout** (like a Steenbeck film editor or reel-to-r
 ### Bag 1 — Baseplate & Horizontal Reel Turntables
 | Qty | Part ID | Part Name | Color |
 | :---: | :---: | :--- | :--- |
-| 1 | `4186` | Baseplate 48×48 *(~38 cm × 38 cm)* | Gray / Black |
+| 1 | `3811` *(or `4186`)* | Baseplate 32×32 *(or 48×48)* | Gray / Black |
 | 4 | `3703` | Technic Brick 1×16 with Holes | Black / Gray |
-| 8 | `3702` | Technic Brick 1×8 with Holes | Black / Gray |
-| 6 | `64179` | Technic Liftarm Frame 5×7 Open Center *(used flat as sturdy axle bearings)* | Dark Bluish Gray |
+| 5 | `3738` | Technic Plate 2×8 with Holes *(replaces 5 of the 5×7 frames!)* | Dark Bluish Gray |
+| 1 | `64179` | Technic Liftarm Frame 5×7 Open Center *(only 1 needed — for the gearbox!)* | Dark Bluish Gray |
+| 16 | `3003` | Brick 2×2 *(sturdy stud-snapped risers for reel & gearbox pedestals)* | Light Gray |
 | 2 | `3737` | Technic Axle 10L *(vertical Supply & Take-Up spindles)* | Black |
 | 12 | `3713` | Technic Bush (1L) | Light Gray |
 | 6 | `4265c` | Technic Bush ½ Smooth | Light Gray |
-| 24 | `2780` | Technic Pin with Friction Ridges | Black |
+| 8 | `2780` | Technic Pin with Friction Ridges | Black |
 
 ### Bag 2 — Worm-Gear Gearbox & Spring-Loaded Pinch Rollers
 | Qty | Part ID | Part Name | Color |
@@ -71,13 +72,13 @@ This manual uses a **Flatbed Layout** (like a Steenbeck film editor or reel-to-r
 ---
 
 ## Step 2 — Build the Supply Reel Bearing Pedestal (North)
-> **Parts:** `2× 64179 (5×7 Frame)` · `4× 3702 (1×8 Technic Brick)` · `8× 2780 (Black Pin)`
+> **Parts:** `2× 3738 (2×8 Technic Plate w/ Holes)` · `6× 3003 (2×2 Brick)`
 
-1. At the **North** end of the Film Path, snap two `1×8` Technic bricks (`3702`) parallel to each other on the baseplate, spaced 5 studs apart.
-2. Pin one `5×7` Technic frame (`64179`) lying **flat (horizontal)** across the top of those bricks—this forms a rock-solid lower bearing plate.
-3. Stack a second `5×7` frame **3 bricks higher** above the first one (supported by corner bricks/pins) so a vertical axle passing through both frames cannot wobble.
+1. At the **North** end of the Film Path (row 4), snap two `2×2` bricks (`3003`) onto the baseplate spaced 6 studs center-to-center (`col 8` and `col 14`).
+2. Snap one `2×8` Technic Plate with Holes (`3738`) **flat across the top** of those two bricks—no pins needed!
+3. Stack two more `2×2` riser bricks on each end and snap the second `2×8` Technic Plate (`3738`) directly on top so the vertical axle passes through two aligned round bearing holes.
 
-**Check:** Sight straight down through the matching center holes of both stacked frames—they must line up vertically.
+**Check:** Sight straight down through the center round hole of both stacked `2×8` plates—they must line up dead plumb.
 
 ---
 
@@ -93,10 +94,10 @@ This manual uses a **Flatbed Layout** (like a Steenbeck film editor or reel-to-r
 ---
 
 ## Step 4 — Build the Matching Take-Up Reel Turntable (South)
-> **Parts:** `2× 64179 (5×7 Frame)` · `4× 3702 (1×8 Technic Brick)` · `1× 3737 (10L Axle)` · `1× 4185 (Wedge Belt Pulley)` · `4× 3713 (1L Bush)` · `8× 2780 (Black Pin)`
+> **Parts:** `2× 3738 (2×8 Technic Plate w/ Holes)` · `6× 3003 (2×2 Brick)` · `1× 3737 (10L Axle)` · `1× 4185 (Wedge Belt Pulley)` · `4× 3713 (1L Bush)`
 
-1. Repeat Steps 2 & 3 at the **South** end of the baseplate (directly in line with the North reel, ~24–28 studs south of it).
-2. **One extra piece:** Before pushing the `10L` axle all the way down, thread one **Wedge Belt Pulley (`4185`)** onto the lower section of the axle (between the baseplate and the lower frame, ~1 cm above the baseplate).
+1. Repeat Steps 2 & 3 at the **South** end of the baseplate (`col 11, row 27`), directly in line with the North reel.
+2. **One extra piece:** Before pushing the `10L` axle all the way down, thread one **Wedge Belt Pulley (`4185`)** onto the lower section of the axle (~1 cm above the baseplate).
 3. Place bushings at the exact same height as Step 3 so the Take-Up Reel sits at the **exact same level** as the Supply Reel.
 
 **Check:** Stretch a sacrificial strip of 8mm film straight from the North reel to the South reel—it should run perfectly level and tangent to both hubs with zero twist.
@@ -110,9 +111,9 @@ This manual uses a **Flatbed Layout** (like a Steenbeck film editor or reel-to-r
 *(Note: In our Flatbed layout, this exact gearbox & roller assembly is rotated so the **pinch-roller axles stand vertically** and the **worm gear + 28BYJ-48 motor sit horizontally underneath the film plane**!)*
 
 ## Step 5 — Assemble the Driven Pinch Roller & 24T Gear Shaft
-> **Parts:** `2× 64179 (5×7 Frame)` · `1× 3737 (10L Axle)` · `1× 3648 (24T Gear)` · `1× Smooth Rubber Tire + Wheel` · `1× 4185 (Wedge Belt Pulley)` · `4× 3713 (1L Bush)`
+> **Parts:** `1× 64179 (5×7 Frame — the only one in the build!)` · `1× 3738 (2×8 Technic Plate w/ Holes)` · `4× 3003 (2×2 Brick)` · `1× 3737 (10L Axle)` · `1× 3648 (24T Gear)` · `1× Smooth Rubber Tire + Wheel` · `1× 4185 (Wedge Belt Pulley)` · `4× 3713 (1L Bush)`
 
-1. Just **South of the center Film Gate** (about 6–8 studs south of the optical axis), mount two stacked `5×7` frames (`64179`) anchored to the baseplate—identical to Step 2, positioned so the vertical shaft sits **1 tire-radius to the East** of the straight film line.
+1. Just **South of the center Film Gate**, anchor your **single `5×7` Technic Frame (`64179`)** flat on two `1×4` Technic bricks (`col 16, row 21`), stack `2×2` riser bricks on both sides, and cap the top with one `2×8` Technic Plate with Holes (`3738`) as the upper bearing.
 2. Thread the vertical `10L` axle (`3737`) from bottom to top with three parts stacked in order:
    - **Bottom (~1 cm up):** Second **Wedge Belt Pulley (`4185`)** — matches the height of the Take-Up Reel pulley!
    - **Middle (~2.5 cm up):** **24-Tooth Gear (`3648`)** lying flat inside the gearbox frame.

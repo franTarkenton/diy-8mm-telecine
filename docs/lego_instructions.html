@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,7 +42,10 @@
       --stud-dot: #334155;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 18px 16px 32px;
@@ -52,7 +56,10 @@
       line-height: 1.45;
     }
 
-    .booklet { max-width: 1120px; margin: 0 auto; }
+    .booklet {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
 
     /* Top Header */
     .topbar {
@@ -63,10 +70,25 @@
       gap: 10px;
       margin-bottom: 14px;
     }
-    .title-block h1 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
-    .title-block .sub { font-size: 12px; color: var(--muted); }
 
-    .controls { display: flex; align-items: center; gap: 8px; }
+    .title-block h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .title-block .sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     button {
       cursor: pointer;
       font-family: inherit;
@@ -79,10 +101,27 @@
       color: var(--fg);
       transition: all 0.12s ease;
     }
-    button:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
-    button:disabled { opacity: 0.4; cursor: not-allowed; }
-    button.primary { background: var(--primary); color: var(--primary-fg); border-color: var(--primary); }
-    button.primary:hover:not(:disabled) { filter: brightness(1.08); color: var(--primary-fg); }
+
+    button:hover:not(:disabled) {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    button.primary {
+      background: var(--primary);
+      color: var(--primary-fg);
+      border-color: var(--primary);
+    }
+
+    button.primary:hover:not(:disabled) {
+      filter: brightness(1.08);
+      color: var(--primary-fg);
+    }
 
     /* Bag & Step Scrubber */
     .scrubber {
@@ -96,9 +135,28 @@
       padding: 8px 10px;
       margin-bottom: 14px;
     }
-    .bag-group { display: flex; align-items: center; gap: 4px; padding-right: 8px; border-right: 1px solid var(--border); }
-    .bag-group:last-child { border-right: none; padding-right: 0; }
-    .bag-label { font-size: 11px; font-weight: 800; color: var(--muted); text-transform: uppercase; margin-right: 2px; }
+
+    .bag-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding-right: 8px;
+      border-right: 1px solid var(--border);
+    }
+
+    .bag-group:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .bag-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-right: 2px;
+    }
+
     .step-pill {
       width: 28px;
       height: 28px;
@@ -110,8 +168,18 @@
       font-size: 12px;
       font-weight: 700;
     }
-    .step-pill.active { background: var(--primary); color: #fff; border-color: var(--primary); }
-    .step-pill.done { background: var(--success-bg); color: var(--success); border-color: var(--success); }
+
+    .step-pill.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .step-pill.done {
+      background: var(--success-bg);
+      color: var(--success);
+      border-color: var(--success);
+    }
 
     /* Main Instruction Page Card */
     .page {
@@ -133,7 +201,12 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .step-badge-wrap { display: flex; align-items: center; gap: 14px; }
+    .step-badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
     .step-num {
       font-size: 40px;
       font-weight: 900;
@@ -141,6 +214,7 @@
       color: var(--fg);
       min-width: 44px;
     }
+
     .bag-tag {
       display: inline-block;
       font-size: 11px;
@@ -154,7 +228,12 @@
       border: 1px solid var(--parts-border);
       margin-bottom: 4px;
     }
-    .step-title { margin: 0; font-size: 18px; font-weight: 700; }
+
+    .step-title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
 
     /* Classic LEGO Blue Parts Box */
     .parts-box {
@@ -165,6 +244,7 @@
       min-width: 280px;
       max-width: 560px;
     }
+
     .parts-box-title {
       font-size: 11px;
       font-weight: 800;
@@ -172,7 +252,13 @@
       color: var(--primary);
       margin-bottom: 6px;
     }
-    .parts-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .parts-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
     .part-chip {
       display: inline-flex;
       align-items: center;
@@ -183,8 +269,17 @@
       padding: 4px 8px;
       font-size: 12px;
     }
-    .part-qty { font-weight: 800; color: var(--primary); }
-    .part-id { font-family: ui-monospace, monospace; font-size: 11px; color: var(--muted); }
+
+    .part-qty {
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .part-id {
+      font-family: ui-monospace, monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
 
     /* Visuals Grid */
     .visuals {
@@ -193,8 +288,11 @@
       gap: 16px;
       align-items: start;
     }
+
     @media (max-width: 860px) {
-      .visuals { grid-template-columns: 1fr; }
+      .visuals {
+        grid-template-columns: 1fr;
+      }
     }
 
     .canvas-card {
@@ -203,6 +301,7 @@
       padding: 10px;
       background: var(--page-bg);
     }
+
     .canvas-label {
       display: flex;
       justify-content: space-between;
@@ -212,10 +311,21 @@
       text-transform: uppercase;
       margin-bottom: 6px;
     }
-    svg.grid-svg { width: 100%; height: auto; display: block; border-radius: 6px; }
+
+    svg.grid-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+    }
 
     /* Instructions Column */
-    .instr-col { display: flex; flex-direction: column; gap: 12px; }
+    .instr-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
     .instr-list {
       margin: 0;
       padding-left: 20px;
@@ -224,7 +334,10 @@
       gap: 8px;
       font-size: 13.5px;
     }
-    .instr-list li strong { color: var(--fg); }
+
+    .instr-list li strong {
+      color: var(--fg);
+    }
 
     .fit-check {
       background: var(--success-bg);
@@ -233,7 +346,10 @@
       padding: 10px 12px;
       font-size: 13px;
     }
-    .fit-check strong { color: var(--success); }
+
+    .fit-check strong {
+      color: var(--success);
+    }
 
     .legend {
       display: flex;
@@ -243,20 +359,44 @@
       color: var(--muted);
       margin-top: 8px;
     }
-    .legend-item { display: inline-flex; align-items: center; gap: 5px; }
-    .swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
 
-    .svg-txt { font-size: 10px; font-weight: 700; fill: var(--fg); }
-    .svg-sub { font-size: 8.5px; fill: var(--muted); }
-    .new-glow { filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.7)); }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    .svg-txt {
+      font-size: 10px;
+      font-weight: 700;
+      fill: var(--fg);
+    }
+
+    .svg-sub {
+      font-size: 8.5px;
+      fill: var(--muted);
+    }
+
+    .new-glow {
+      filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.7));
+    }
   </style>
 </head>
+
 <body>
   <div class="booklet">
     <div class="topbar">
       <div class="title-block">
         <h1>LEGO Technic Build Booklet — Flatbed 8mm Telecine</h1>
-        <div class="sub">12 stud-accurate steps · Use ← / → arrow keys or buttons to flip pages · New pieces highlighted in red</div>
+        <div class="sub">12 stud-accurate steps · Use ← / → arrow keys or buttons to flip pages · New pieces highlighted
+          in red</div>
       </div>
       <div class="controls">
         <button id="btn-theme">Dark Mode</button>
@@ -293,12 +433,15 @@
               <button id="btn-mode-2d" style="padding:2px 8px;font-size:11px;">2D Schematic</button>
             </div>
           </div>
-          <div id="render-3d-wrap" style="background:#ffffff;border-radius:6px;overflow:hidden;border:1px solid var(--border);">
-            <img id="step-img" src="images/steps/step01.png" alt="3D LEGO Step Render" style="width:100%;height:auto;display:block;" />
+          <div id="render-3d-wrap"
+            style="background:#ffffff;border-radius:6px;overflow:hidden;border:1px solid var(--border);">
+            <img id="step-img" src="images/steps/step01.png" alt="3D LEGO Step Render"
+              style="width:100%;height:auto;display:block;" />
           </div>
           <svg id="top-svg" viewBox="0 0 420 420" class="grid-svg" style="display:none;"></svg>
           <div class="legend">
-            <span class="legend-item"><span class="swatch" style="background:#e11d48;border:1px solid #991b1b"></span> New bricks in THIS step</span>
+            <span class="legend-item"><span class="swatch" style="background:#e11d48;border:1px solid #991b1b"></span>
+              New bricks in THIS step</span>
             <span class="legend-item"><span class="swatch" style="background:#94a3b8"></span> Prior steps (faded)</span>
             <span class="legend-item">Open <code>cad/telecine_flatbed.ldr</code> in LeoCAD to orbit in 3D</span>
           </div>
@@ -342,16 +485,15 @@
         num: 2, bag: "Bag 1 · Foundation",
         title: "Build the Supply Reel Bearing Pedestal (North)",
         parts: [
-          { qty: "2×", name: "5×7 Technic Frame", id: "64179" },
-          { qty: "4×", name: "1×8 Technic Brick", id: "3702" },
-          { qty: "8×", name: "Black Friction Pin", id: "2780" }
+          { qty: "2×", name: "2×8 Technic Plate w/ Holes", id: "3738" },
+          { qty: "6×", name: "2×2 Brick", id: "3003" }
         ],
         instructions: [
-          "At the North end (centered at x=15, y=8), snap two 1×8 Technic bricks (3702) onto the baseplate spaced 5 studs apart.",
-          "Pin one 5×7 Open-Center Frame (64179) lying FLAT horizontally across those bricks.",
-          "Build 3 bricks up at the corners and pin a second 5×7 frame directly above the first so both center holes align vertically."
+          "At the North end (row 4), snap two 2×2 bricks (3003) onto the baseplate at col 8 and col 14 (spaced 6 studs center-to-center).",
+          "Snap one 2×8 Technic Plate with Holes (3738) flat across the top of those two bricks—no pins needed!",
+          "Stack two more 2×2 riser bricks on each end and snap the second 2×8 Technic Plate (3738) directly on top."
         ],
-        check: "Look straight down through the center hole of both stacked frames—the vertical axle hole must be dead plumb."
+        check: "Look straight down through the center round hole of both stacked 2×8 plates—they must align dead plumb at (col 11, row 4)."
       },
       {
         num: 3, bag: "Bag 1 · Foundation",
@@ -372,35 +514,35 @@
         num: 4, bag: "Bag 1 · Foundation",
         title: "Build the Matching Take-Up Reel Turntable (South)",
         parts: [
-          { qty: "2×", name: "5×7 Technic Frame", id: "64179" },
-          { qty: "4×", name: "1×8 Technic Brick", id: "3702" },
+          { qty: "2×", name: "2×8 Technic Plate w/ Holes", id: "3738" },
+          { qty: "6×", name: "2×2 Brick", id: "3003" },
           { qty: "1×", name: "10L Technic Axle", id: "3737" },
           { qty: "1×", name: "Wedge Belt Pulley", id: "4185" },
-          { qty: "4×", name: "1L Bush + 8× Pin", id: "3713" }
+          { qty: "4×", name: "1L Technic Bush", id: "3713" }
         ],
         instructions: [
-          "Build the exact same stacked 5×7 frame pedestal at the South end (centered at x=15, y=40).",
-          "Before dropping the 10L axle all the way down, thread one Wedge Belt Pulley (4185) near the bottom (~1 cm above the baseplate).",
+          "Build the exact same 2×8 Technic Plate pedestal at the South end (centered at col 11, row 27).",
+          "Before dropping the vertical 10L axle all the way down, thread one Wedge Belt Pulley (4185) near the bottom (~1 cm above the baseplate).",
           "Add bushings at the EXACT same height as Step 3 and seat your flat Take-Up Reel on top."
         ],
-        check: "Hold a ruler from the North reel's East rim to the South reel's East rim—both line up straight along x=20 at the exact same height!"
+        check: "Hold a ruler from the North reel's East rim to the South reel's East rim—both line up straight along col 13.5 at the exact same height!"
       },
       {
         num: 5, bag: "Bag 2 · Film Drive",
         title: "Assemble the Driven Pinch Roller & 24T Gear Shaft",
         parts: [
-          { qty: "2×", name: "5×7 Technic Frame", id: "64179" },
-          { qty: "1×", name: "10L Technic Axle", id: "3737" },
-          { qty: "1×", name: "24-Tooth Gear", id: "3648" },
-          { qty: "1×", name: "Rubber Tire + Wheel", id: "56902" },
-          { qty: "1×", name: "Wedge Belt Pulley", id: "4185" }
+          { qty: "1×", name: "5×7 Technic Frame (only 1!)", id: "64179" },
+          { qty: "1×", name: "2×8 Technic Plate w/ Holes", id: "3738" },
+          { qty: "4×", name: "2×2 Brick", id: "3003" },
+          { qty: "1×", name: "10L Axle + 24T Gear", id: "3737/3648" },
+          { qty: "1×", name: "Rubber Tire + Pulley", id: "61254/4185" }
         ],
         instructions: [
-          "Anchor two stacked 5×7 frames just South of the optical axis (centered at x=22, y=31) so the shaft sits 1 tire-radius East of x=20.",
-          "Thread the vertical 10L axle from bottom to top: (1) Pulley 4185 at ~1 cm, (2) 24T Gear 3648 in the middle, (3) Smooth Rubber Tire at Film Plane Height.",
-          "Lock each piece vertically with bushings (3713) so nothing slides up or down."
+          "Anchor your SINGLE 5×7 Technic Frame (64179) flat just South of the optical axis (centered at col 16, row 21) on two 1×4 Technic bricks.",
+          "Stack 2×2 riser bricks on both sides and snap one 2×8 Technic Plate with Holes (3738) on top as the upper bearing.",
+          "Thread the vertical 10L axle from bottom to top: (1) Pulley 4185 at ~1 cm, (2) 24T Gear 3648 inside the gearbox, (3) Flat Smooth Rubber Tire at Film Plane Height."
         ],
-        check: "Spin the top rubber tire—its West edge sits right on the x=20 film line, and the 24T gear + bottom pulley spin together smoothly."
+        check: "Spin the top rubber tire—its West edge sits right on the col 13.5 film line, and the 24T gear + bottom pulley spin together smoothly."
       },
       {
         num: 6, bag: "Bag 2 · Film Drive",
@@ -571,7 +713,7 @@
       </defs>`;
 
       // Step 1: 48x48 Baseplate + subtle stud grid (every 4 studs for clarity)
-      out += `<rect x="${M}" y="${M}" width="${48*S}" height="${48*S}" rx="4" fill="${baseFill}" stroke="${curStepNum===1?'#ef4444':'#64748b'}" stroke-width="${curStepNum===1?2.5:1.2}" />`;
+      out += `<rect x="${M}" y="${M}" width="${48 * S}" height="${48 * S}" rx="4" fill="${baseFill}" stroke="${curStepNum === 1 ? '#ef4444' : '#64748b'}" stroke-width="${curStepNum === 1 ? 2.5 : 1.2}" />`;
       for (let x = 2; x < 48; x += 4) {
         for (let y = 2; y < 48; y += 4) {
           out += `<circle cx="${gx(x)}" cy="${gy(y)}" r="1.3" fill="${studDot}" />`;
@@ -589,10 +731,10 @@
         const st = strokeFor(1, curStepNum, "#334155");
         const fl = fillFor(1, curStepNum, builtGray, "#ef4444");
         out += `<g ${clsFor(1, curStepNum)}>
-          <rect x="${gx(12)}" y="${gy(20.5)}" width="${16*S}" height="${S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.2" />
-          <rect x="${gx(12)}" y="${gy(26.5)}" width="${16*S}" height="${S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.2" />
-          <rect x="${gx(16.5)}" y="${gy(16)}" width="${S}" height="${16*S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.2" />
-          <rect x="${gx(22.5)}" y="${gy(16)}" width="${S}" height="${16*S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.2" />
+          <rect x="${gx(12)}" y="${gy(20.5)}" width="${16 * S}" height="${S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.2" />
+          <rect x="${gx(12)}" y="${gy(26.5)}" width="${16 * S}" height="${S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.2" />
+          <rect x="${gx(16.5)}" y="${gy(16)}" width="${S}" height="${16 * S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.2" />
+          <rect x="${gx(22.5)}" y="${gy(16)}" width="${S}" height="${16 * S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.2" />
         </g>`;
       }
 
@@ -601,8 +743,8 @@
         const st = strokeFor(2, curStepNum, "#334155");
         const fl = fillFor(2, curStepNum, "#94a3b8", "rgba(239,68,68,0.35)");
         out += `<g ${clsFor(2, curStepNum)}>
-          <rect x="${gx(11.5)}" y="${gy(5.5)}" width="${7*S}" height="${5*S}" rx="2" fill="${fl}" stroke="${st}" stroke-width="2" />
-          <rect x="${gx(12.5)}" y="${gy(6.5)}" width="${5*S}" height="${3*S}" rx="1" fill="${baseFill}" stroke="${st}" stroke-width="1" />
+          <rect x="${gx(11.5)}" y="${gy(5.5)}" width="${7 * S}" height="${5 * S}" rx="2" fill="${fl}" stroke="${st}" stroke-width="2" />
+          <rect x="${gx(12.5)}" y="${gy(6.5)}" width="${5 * S}" height="${3 * S}" rx="1" fill="${baseFill}" stroke="${st}" stroke-width="1" />
         </g>`;
       }
 
@@ -611,11 +753,11 @@
         const st = strokeFor(3, curStepNum, "#2563eb");
         const fl = fillFor(3, curStepNum, "rgba(59,130,246,0.16)", "rgba(239,68,68,0.22)");
         out += `<g ${clsFor(3, curStepNum)}>
-          <circle cx="${gx(15)}" cy="${gy(8)}" r="${5*S}" fill="${fl}" stroke="${st}" stroke-width="2" />
-          <circle cx="${gx(15)}" cy="${gy(8)}" r="${3.2*S}" fill="none" stroke="${st}" stroke-width="1" stroke-dasharray="3 2" />
+          <circle cx="${gx(15)}" cy="${gy(8)}" r="${5 * S}" fill="${fl}" stroke="${st}" stroke-width="2" />
+          <circle cx="${gx(15)}" cy="${gy(8)}" r="${3.2 * S}" fill="none" stroke="${st}" stroke-width="1" stroke-dasharray="3 2" />
           <circle cx="${gx(15)}" cy="${gy(8)}" r="5" fill="${darkBrick}" stroke="${st}" stroke-width="1.5" />
-          <text x="${gx(15)}" y="${gy(8)+3}" text-anchor="middle" fill="#fff" font-size="7" font-weight="700">+</text>
-          <text x="${gx(7)}" y="${gy(8)+3}" text-anchor="middle" fill="${txtCol}" font-size="9" font-weight="700">Supply</text>
+          <text x="${gx(15)}" y="${gy(8) + 3}" text-anchor="middle" fill="#fff" font-size="7" font-weight="700">+</text>
+          <text x="${gx(7)}" y="${gy(8) + 3}" text-anchor="middle" fill="${txtCol}" font-size="9" font-weight="700">Supply</text>
         </g>`;
       }
 
@@ -624,11 +766,11 @@
         const st = strokeFor(4, curStepNum, "#0d9488");
         const fl = fillFor(4, curStepNum, "rgba(20,184,166,0.16)", "rgba(239,68,68,0.22)");
         out += `<g ${clsFor(4, curStepNum)}>
-          <rect x="${gx(11.5)}" y="${gy(37.5)}" width="${7*S}" height="${5*S}" rx="2" fill="none" stroke="${st}" stroke-width="1.5" />
-          <circle cx="${gx(15)}" cy="${gy(40)}" r="${5*S}" fill="${fl}" stroke="${st}" stroke-width="2" />
-          <circle cx="${gx(15)}" cy="${gy(40)}" r="${2.6*S}" fill="none" stroke="${st}" stroke-width="1" stroke-dasharray="3 2" />
+          <rect x="${gx(11.5)}" y="${gy(37.5)}" width="${7 * S}" height="${5 * S}" rx="2" fill="none" stroke="${st}" stroke-width="1.5" />
+          <circle cx="${gx(15)}" cy="${gy(40)}" r="${5 * S}" fill="${fl}" stroke="${st}" stroke-width="2" />
+          <circle cx="${gx(15)}" cy="${gy(40)}" r="${2.6 * S}" fill="none" stroke="${st}" stroke-width="1" stroke-dasharray="3 2" />
           <circle cx="${gx(15)}" cy="${gy(40)}" r="5" fill="${darkBrick}" stroke="${st}" stroke-width="1.5" />
-          <text x="${gx(7)}" y="${gy(40)+3}" text-anchor="middle" fill="${txtCol}" font-size="9" font-weight="700">Take-Up</text>
+          <text x="${gx(7)}" y="${gy(40) + 3}" text-anchor="middle" fill="${txtCol}" font-size="9" font-weight="700">Take-Up</text>
         </g>`;
       }
 
@@ -637,8 +779,8 @@
         const st = strokeFor(5, curStepNum, "#16a34a");
         const fl = fillFor(5, curStepNum, "rgba(22,163,74,0.2)", "rgba(239,68,68,0.28)");
         out += `<g ${clsFor(5, curStepNum)}>
-          <rect x="${gx(19.5)}" y="${gy(28.5)}" width="${7*S}" height="${5*S}" rx="2" fill="none" stroke="${st}" stroke-width="1.8" />
-          <circle cx="${gx(22)}" cy="${gy(31)}" r="${2*S}" fill="${darkBrick}" stroke="${st}" stroke-width="2.2" />
+          <rect x="${gx(19.5)}" y="${gy(28.5)}" width="${7 * S}" height="${5 * S}" rx="2" fill="none" stroke="${st}" stroke-width="1.8" />
+          <circle cx="${gx(22)}" cy="${gy(31)}" r="${2 * S}" fill="${darkBrick}" stroke="${st}" stroke-width="2.2" />
           <circle cx="${gx(22)}" cy="${gy(31)}" r="4" fill="${st}" />
           <text x="${gx(31)}" y="${gy(30)}" fill="${txtCol}" font-size="8.5" font-weight="700">Driven Roller</text>
         </g>`;
@@ -649,9 +791,9 @@
         const st = strokeFor(6, curStepNum, "#d97706");
         const fl = fillFor(6, curStepNum, "#94a3b8", "rgba(239,68,68,0.35)");
         out += `<g ${clsFor(6, curStepNum)}>
-          <rect x="${gx(24)}" y="${gy(30.2)}" width="${3*S}" height="${1.6*S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.8" />
+          <rect x="${gx(24)}" y="${gy(30.2)}" width="${3 * S}" height="${1.6 * S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.8" />
           <line x1="${gx(27)}" y1="${gy(31)}" x2="${gx(29)}" y2="${gy(31)}" stroke="${st}" stroke-width="2.5" />
-          <rect x="${gx(29)}" y="${gy(29.2)}" width="${5*S}" height="${3.6*S}" rx="3" fill="${fl}" stroke="${st}" stroke-width="1.8" />
+          <rect x="${gx(29)}" y="${gy(29.2)}" width="${5 * S}" height="${3.6 * S}" rx="3" fill="${fl}" stroke="${st}" stroke-width="1.8" />
           <text x="${gx(31.5)}" y="${gy(34.5)}" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">28BYJ-48 + Worm</text>
         </g>`;
       }
@@ -660,8 +802,8 @@
       if (curStepNum >= 7) {
         const st = strokeFor(7, curStepNum, "#eab308");
         out += `<g ${clsFor(7, curStepNum)}>
-          <rect x="${gx(16)}" y="${gy(30.2)}" width="${2*S}" height="${6*S}" rx="3" fill="#facc15" stroke="${st}" stroke-width="1.8" transform="rotate(-12 ${gx(18)} ${gy(31)})" />
-          <circle cx="${gx(18)}" cy="${gy(31)}" r="${2*S}" fill="${darkBrick}" stroke="${st}" stroke-width="2.2" />
+          <rect x="${gx(16)}" y="${gy(30.2)}" width="${2 * S}" height="${6 * S}" rx="3" fill="#facc15" stroke="${st}" stroke-width="1.8" transform="rotate(-12 ${gx(18)} ${gy(31)})" />
+          <circle cx="${gx(18)}" cy="${gy(31)}" r="${2 * S}" fill="${darkBrick}" stroke="${st}" stroke-width="2.2" />
           <circle cx="${gx(18)}" cy="${gy(31)}" r="3.5" fill="#facc15" />
           <line x1="${gx(18)}" y1="${gy(35)}" x2="${gx(22)}" y2="${gy(34)}" stroke="#ef4444" stroke-width="2" stroke-dasharray="2 2" />
           <text x="${gx(11)}" y="${gy(31.5)}" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">Spring Idler</text>
@@ -682,8 +824,8 @@
         const st = strokeFor(9, curStepNum, "#0f172a");
         const fl = fillFor(9, curStepNum, darkBrick, "#ef4444");
         out += `<g ${clsFor(9, curStepNum)}>
-          <rect x="${gx(18.2)}" y="${gy(21.5)}" width="${1.4*S}" height="${5*S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.5" />
-          <rect x="${gx(20.4)}" y="${gy(21.5)}" width="${1.4*S}" height="${5*S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.5" />
+          <rect x="${gx(18.2)}" y="${gy(21.5)}" width="${1.4 * S}" height="${5 * S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.5" />
+          <rect x="${gx(20.4)}" y="${gy(21.5)}" width="${1.4 * S}" height="${5 * S}" rx="1" fill="${fl}" stroke="${st}" stroke-width="1.5" />
           <text x="${gx(20)}" y="${gy(20)}" text-anchor="middle" fill="${txtCol}" font-size="9" font-weight="700">Film Gate</text>
         </g>`;
       }
@@ -693,9 +835,9 @@
         const st = strokeFor(10, curStepNum, "#0f172a");
         const fl = fillFor(10, curStepNum, darkBrick, "rgba(239,68,68,0.35)");
         out += `<g ${clsFor(10, curStepNum)}>
-          <rect x="${gx(15.5)}" y="${gy(21.5)}" width="${0.9*S}" height="${5*S}" rx="1" fill="#ffffff" stroke="${st}" stroke-width="1.6" />
+          <rect x="${gx(15.5)}" y="${gy(21.5)}" width="${0.9 * S}" height="${5 * S}" rx="1" fill="#ffffff" stroke="${st}" stroke-width="1.6" />
           <text x="${gx(14.5)}" y="${gy(28.5)}" text-anchor="middle" fill="${txtCol}" font-size="8" font-weight="700">Diffuser</text>
-          <rect x="${gx(22)}" y="${gy(22)}" width="${12*S}" height="${4*S}" rx="2" fill="${fl}" stroke="${st}" stroke-width="1.8" />
+          <rect x="${gx(22)}" y="${gy(22)}" width="${12 * S}" height="${4 * S}" rx="2" fill="${fl}" stroke="${st}" stroke-width="1.8" />
           <text x="${gx(28)}" y="${gy(24.4)}" text-anchor="middle" fill="#fff" font-size="8.5" font-weight="700">Black Light Tunnel</text>
         </g>`;
       }
@@ -704,10 +846,10 @@
       if (curStepNum >= 11) {
         const st = strokeFor(11, curStepNum, "#16a34a");
         out += `<g ${clsFor(11, curStepNum)}>
-          <rect x="${gx(4.5)}" y="${gy(21)}" width="${3*S}" height="${6*S}" rx="2" fill="${darkBrick}" stroke="${curStepNum===11?'#ef4444':'#f59e0b'}" stroke-width="2" />
+          <rect x="${gx(4.5)}" y="${gy(21)}" width="${3 * S}" height="${6 * S}" rx="2" fill="${darkBrick}" stroke="${curStepNum === 11 ? '#ef4444' : '#f59e0b'}" stroke-width="2" />
           <text x="${gx(6)}" y="${gy(29)}" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">5600K LED</text>
-          <rect x="${gx(34.5)}" y="${gy(22.5)}" width="${4.5*S}" height="${3*S}" rx="2" fill="${darkBrick}" stroke="${st}" stroke-width="1.8" />
-          <rect x="${gx(39.5)}" y="${gy(21)}" width="${3*S}" height="${6*S}" rx="2" fill="#16a34a" stroke="${st}" stroke-width="2" />
+          <rect x="${gx(34.5)}" y="${gy(22.5)}" width="${4.5 * S}" height="${3 * S}" rx="2" fill="${darkBrick}" stroke="${st}" stroke-width="1.8" />
+          <rect x="${gx(39.5)}" y="${gy(21)}" width="${3 * S}" height="${6 * S}" rx="2" fill="#16a34a" stroke="${st}" stroke-width="2" />
           <text x="${gx(40)}" y="${gy(29)}" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">35mm + HQ Cam</text>
         </g>`;
       }
@@ -733,7 +875,7 @@
 
       let out = "";
       // Baseplate
-      out += `<rect x="14" y="156" width="352" height="14" rx="2" fill="${baseFill}" stroke="${curStepNum===1?'#ef4444':'#64748b'}" stroke-width="${curStepNum===1?2:1.2}" />`;
+      out += `<rect x="14" y="156" width="352" height="14" rx="2" fill="${baseFill}" stroke="${curStepNum === 1 ? '#ef4444' : '#64748b'}" stroke-width="${curStepNum === 1 ? 2 : 1.2}" />`;
       out += `<text x="190" y="166" text-anchor="middle" fill="${txtCol}" font-size="8.5" font-weight="700">48×48 Baseplate (Flat on Table)</text>`;
 
       // Film plane dashed reference line
@@ -742,7 +884,7 @@
 
       // Step 2 & 3: North Supply Axle + Flat Supply Reel (x=60)
       if (curStepNum >= 2) {
-        out += `<rect x="44" y="96" width="32" height="60" rx="2" fill="none" stroke="${curStepNum===2?'#ef4444':mutCol}" stroke-width="${curStepNum===2?2:1.2}" />`;
+        out += `<rect x="44" y="96" width="32" height="60" rx="2" fill="none" stroke="${curStepNum === 2 ? '#ef4444' : mutCol}" stroke-width="${curStepNum === 2 ? 2 : 1.2}" />`;
       }
       if (curStepNum >= 3) {
         const st = curStepNum === 3 ? "#ef4444" : "#2563eb";
@@ -756,7 +898,7 @@
       // Step 4: South Take-Up Axle + Pulley + Flat Take-Up Reel (x=320)
       if (curStepNum >= 4) {
         const st = curStepNum === 4 ? "#ef4444" : "#0d9488";
-        out += `<rect x="304" y="96" width="32" height="60" rx="2" fill="none" stroke="${st}" stroke-width="${curStepNum===4?2:1.2}" />`;
+        out += `<rect x="304" y="96" width="32" height="60" rx="2" fill="none" stroke="${st}" stroke-width="${curStepNum === 4 ? 2 : 1.2}" />`;
         out += `<rect x="317" y="42" width="6" height="114" fill="${mutCol}" />`;
         out += `<rect x="308" y="138" width="24" height="7" rx="2" fill="rgba(20,184,166,0.4)" stroke="${st}" stroke-width="1.4" />`;
         out += `<rect x="284" y="54" width="72" height="5" rx="1.5" fill="#fff" stroke="${st}" stroke-width="1.6" />`;
@@ -887,4 +1029,5 @@
     render();
   </script>
 </body>
+
 </html>

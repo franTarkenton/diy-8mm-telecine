@@ -115,17 +115,20 @@ def build_telecine_ldr() -> str:
     b.part(DARK_BLUISH_GRAY, stud_x(17), -24, stud_z(15.5), "3703.dat", ROT_Y90)
 
     # ------------------------------------------------------------------
-    # STEP 2: North Supply Reel Bearing Pedestal (col=11, row=4)
+    # STEP 2: North Supply Reel Bearing Pedestal (2x8 Technic Plates + 2x2 Bricks)
     # ------------------------------------------------------------------
-    b.step("North Supply Reel Bearing Pedestal")
-    b.part(DARK_BLUISH_GRAY, stud_x(11), -24, stud_z(1), "3702.dat", ROT_ID)
-    b.part(DARK_BLUISH_GRAY, stud_x(11), -24, stud_z(7), "3702.dat", ROT_ID)
-    b.part(DARK_BLUISH_GRAY, stud_x(11), -34, stud_z(4), "64179.dat", ROT_Y90)
+    b.step("North Supply Reel Bearing Pedestal (2x8 Technic Plates)")
+    # Two 2x2 riser bricks on baseplate spaced 6 studs center-to-center (col=8, col=14)
     for dc in (-3, 3):
-        for dr in (-2, 2):
-            b.part(LIGHT_BLUISH_GRAY, stud_x(11 + dc), -48, stud_z(4 + dr), "3004.dat", ROT_ID)
-            b.part(LIGHT_BLUISH_GRAY, stud_x(11 + dc), -72, stud_z(4 + dr), "3004.dat", ROT_ID)
-    b.part(DARK_BLUISH_GRAY, stud_x(11), -82, stud_z(4), "64179.dat", ROT_Y90)
+        b.part(LIGHT_BLUISH_GRAY, stud_x(11 + dc), -24, stud_z(4), "3003.dat", ROT_ID)
+    # Lower 2x8 Technic Plate with Holes (3738.dat) snapped straight onto the 2x2 bricks
+    b.part(DARK_BLUISH_GRAY, stud_x(11), -32, stud_z(4), "3738.dat", ROT_ID)
+    # Two layers of 2x2 riser bricks on top of the lower plate ends
+    for dc in (-3, 3):
+        b.part(LIGHT_BLUISH_GRAY, stud_x(11 + dc), -56, stud_z(4), "3003.dat", ROT_ID)
+        b.part(LIGHT_BLUISH_GRAY, stud_x(11 + dc), -80, stud_z(4), "3003.dat", ROT_ID)
+    # Upper 2x8 Technic Plate with Holes (3738.dat) snapped on top
+    b.part(DARK_BLUISH_GRAY, stud_x(11), -88, stud_z(4), "3738.dat", ROT_ID)
 
     # ------------------------------------------------------------------
     # STEP 3: Vertical Supply Axle & Flat Supply Reel (North)
@@ -140,17 +143,16 @@ def build_telecine_ldr() -> str:
     b.part(BLUE, stud_x(11), -124, stud_z(4), "3649.dat", ROT_X90)
 
     # ------------------------------------------------------------------
-    # STEP 4: South Take-Up Reel Pedestal, Bottom Pulley & Flat Reel
+    # STEP 4: South Take-Up Reel Pedestal (2x8 Technic Plates), Bottom Pulley & Flat Reel
     # ------------------------------------------------------------------
     b.step("South Take-Up Reel Pedestal and Flat Take-Up Reel")
-    b.part(DARK_BLUISH_GRAY, stud_x(11), -24, stud_z(24), "3702.dat", ROT_ID)
-    b.part(DARK_BLUISH_GRAY, stud_x(11), -24, stud_z(30), "3702.dat", ROT_ID)
-    b.part(DARK_BLUISH_GRAY, stud_x(11), -34, stud_z(27), "64179.dat", ROT_Y90)
     for dc in (-3, 3):
-        for dr in (-2, 2):
-            b.part(LIGHT_BLUISH_GRAY, stud_x(11 + dc), -48, stud_z(27 + dr), "3004.dat", ROT_ID)
-            b.part(LIGHT_BLUISH_GRAY, stud_x(11 + dc), -72, stud_z(27 + dr), "3004.dat", ROT_ID)
-    b.part(DARK_BLUISH_GRAY, stud_x(11), -82, stud_z(27), "64179.dat", ROT_Y90)
+        b.part(LIGHT_BLUISH_GRAY, stud_x(11 + dc), -24, stud_z(27), "3003.dat", ROT_ID)
+    b.part(DARK_BLUISH_GRAY, stud_x(11), -32, stud_z(27), "3738.dat", ROT_ID)
+    for dc in (-3, 3):
+        b.part(LIGHT_BLUISH_GRAY, stud_x(11 + dc), -56, stud_z(27), "3003.dat", ROT_ID)
+        b.part(LIGHT_BLUISH_GRAY, stud_x(11 + dc), -80, stud_z(27), "3003.dat", ROT_ID)
+    b.part(DARK_BLUISH_GRAY, stud_x(11), -88, stud_z(27), "3738.dat", ROT_ID)
     # Vertical 10L Take-Up axle
     b.part(BLACK, stud_x(11), -100, stud_z(27), "3737.dat", ROT_Z90)
     # Bottom Wedge Belt Pulley for underneath slip-clutch band
@@ -162,17 +164,18 @@ def build_telecine_ldr() -> str:
     b.part(GREEN, stud_x(11), -124, stud_z(27), "3649.dat", ROT_X90)
 
     # ------------------------------------------------------------------
-    # STEP 5: Gearbox Pedestal, Driven Pinch Roller & 24T Gear Shaft
+    # STEP 5: Gearbox Pedestal (Single 5x7 Frame + Upper 2x8 Technic Plate)
     # ------------------------------------------------------------------
-    b.step("Driven Pinch Roller and 24-Tooth Gear Shaft")
+    b.step("Driven Pinch Roller and 24-Tooth Gear Shaft (Single 5x7 Frame)")
     b.part(DARK_BLUISH_GRAY, stud_x(16), -24, stud_z(19), "3701.dat", ROT_ID)
     b.part(DARK_BLUISH_GRAY, stud_x(16), -24, stud_z(23), "3701.dat", ROT_ID)
+    # ONLY 1x 5x7 Open-Center Frame in the entire build — anchors the worm/24T gearbox!
     b.part(DARK_BLUISH_GRAY, stud_x(16), -34, stud_z(21), "64179.dat", ROT_Y90)
     for dc in (-3, 3):
-        for dr in (-2, 2):
-            b.part(LIGHT_BLUISH_GRAY, stud_x(16 + dc), -48, stud_z(21 + dr), "3004.dat", ROT_ID)
-            b.part(LIGHT_BLUISH_GRAY, stud_x(16 + dc), -72, stud_z(21 + dr), "3004.dat", ROT_ID)
-    b.part(DARK_BLUISH_GRAY, stud_x(16), -82, stud_z(21), "64179.dat", ROT_Y90)
+        b.part(LIGHT_BLUISH_GRAY, stud_x(15 + dc), -48, stud_z(21), "3003.dat", ROT_ID)
+        b.part(LIGHT_BLUISH_GRAY, stud_x(15 + dc), -72, stud_z(21), "3003.dat", ROT_ID)
+    # Upper bearing plate: 2x8 Technic Plate with Holes (3738.dat) centered on col=15
+    b.part(DARK_BLUISH_GRAY, stud_x(15), -80, stud_z(21), "3738.dat", ROT_ID)
     # Vertical 10L Driven Shaft (ROT_Z90 -> vertical!)
     b.part(BLACK, stud_x(15), -100, stud_z(21), "3737.dat", ROT_Z90)
     # Bottom Wedge Belt Pulley
