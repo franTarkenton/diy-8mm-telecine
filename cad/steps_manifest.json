@@ -1,0 +1,828 @@
+[
+  {
+    "num": 1,
+    "bag": "Bag 1 \u00b7 Foundation",
+    "title": "Place Baseplate & West\u2013East Optical Rails",
+    "piece_count": 3,
+    "parts": [
+      {
+        "qty": "1\u00d7",
+        "name": "Light Gray 32\u00d732 Baseplate",
+        "id": "3811",
+        "icon": "images/parts/3811_71.png"
+      },
+      {
+        "qty": "2\u00d7",
+        "name": "Dark Gray 1\u00d716 Technic Brick",
+        "id": "3703",
+        "icon": "images/parts/3703_72.png"
+      }
+    ],
+    "instructions": [
+      "Lay the 32\u00d732 baseplate (3811) flat on your table.",
+      "Snap two 1\u00d716 Technic bricks (3703) running West\u2013East across the middle (rows 12 and 19) to frame the Light Path."
+    ],
+    "check": "Both 1\u00d716 rails sit flat and parallel with a 6-stud gap between them."
+  },
+  {
+    "num": 2,
+    "bag": "Bag 1 \u00b7 Foundation",
+    "title": "Add North\u2013South Film Path Side Rails (Zero Overlap)",
+    "piece_count": 2,
+    "parts": [
+      {
+        "qty": "2\u00d7",
+        "name": "Dark Gray 1\u00d76 Technic Brick",
+        "id": "3894",
+        "icon": "images/parts/3894_72.png"
+      }
+    ],
+    "instructions": [
+      "Snap two 1\u00d76 Technic bricks (3894) running North\u2013South (cols 10 and 16) snugly BETWEEN the two 1\u00d716 rails (rows 13\u201318) so zero bricks overlap."
+    ],
+    "check": "The two 1\u00d76 rails butt cleanly against the inside edges of the 1\u00d716 rails, framing the center Film Gate bay."
+  },
+  {
+    "num": 3,
+    "bag": "Bag 1 \u00b7 Foundation",
+    "title": "Supply Reel Pedestal \u2014 Base & Lower Bearing Plate",
+    "piece_count": 3,
+    "parts": [
+      {
+        "qty": "2\u00d7",
+        "name": "Light Gray 2\u00d72 Brick",
+        "id": "3003",
+        "icon": "images/parts/3003_71.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray 2\u00d78 Technic Plate w/ Holes",
+        "id": "3738",
+        "icon": "images/parts/3738_72.png"
+      }
+    ],
+    "instructions": [
+      "At the North end (row 4), snap two 2\u00d72 bricks (3003) at col 8 and col 14 (6 studs center-to-center).",
+      "Snap one 2\u00d78 Technic Plate with Holes (3738) flat across the top of both bricks."
+    ],
+    "check": "The center round hole of the 2\u00d78 plate sits cleanly over (col 11, row 4)."
+  },
+  {
+    "num": 4,
+    "bag": "Bag 1 \u00b7 Foundation",
+    "title": "Supply Reel Pedestal \u2014 Riser Columns",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "Light Gray 2\u00d72 Brick",
+        "id": "3003",
+        "icon": "images/parts/3003_71.png"
+      }
+    ],
+    "instructions": [
+      "Stack two 2\u00d72 bricks (3003) on the West end and two 2\u00d72 bricks on the East end of the lower 2\u00d78 Technic plate."
+    ],
+    "check": "Both riser columns are 2 bricks tall above the lower plate."
+  },
+  {
+    "num": 5,
+    "bag": "Bag 1 \u00b7 Foundation",
+    "title": "Supply Reel Pedestal \u2014 Top Bearing & Vertical Axle",
+    "piece_count": 3,
+    "parts": [
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray 2\u00d78 Technic Plate w/ Holes",
+        "id": "3738",
+        "icon": "images/parts/3738_72.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Black 10L Technic Axle",
+        "id": "3737",
+        "icon": "images/parts/3737_0.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Light Gray 1L Technic Bush",
+        "id": "3713",
+        "icon": "images/parts/3713_71.png"
+      }
+    ],
+    "instructions": [
+      "Snap the second 2\u00d78 Technic Plate with Holes (3738) flat across the top of the riser columns.",
+      "Drop the vertical 10L axle (3737) down through both center holes and add a 1L bushing (3713) right above the top plate."
+    ],
+    "check": "The vertical 10L axle spins freely and stands dead plumb."
+  },
+  {
+    "num": 6,
+    "bag": "Bag 1 \u00b7 Foundation",
+    "title": "Seat the Flat Supply Reel (North)",
+    "piece_count": 3,
+    "parts": [
+      {
+        "qty": "2\u00d7",
+        "name": "Blue 8mm Reel Flange (40T Proxy)",
+        "id": "3649",
+        "icon": "images/parts/3649_1.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray Wedge Belt Pulley",
+        "id": "4185",
+        "icon": "images/parts/4185_72.png"
+      }
+    ],
+    "instructions": [
+      "Wrap 2\u20133 neat turns of painter's tape around the upper axle tip so your 8mm Supply Reel fits snugly and sits FLAT like a vinyl record.",
+      "(Shown here as a blue reel proxy resting at Film Plane Height, ~4.5 cm above the baseplate.)"
+    ],
+    "check": "Spin the Supply Reel by hand\u2014it stays level and its East rim aligns with col 13.5."
+  },
+  {
+    "num": 7,
+    "bag": "Bag 1 \u00b7 Foundation",
+    "title": "Take-Up Reel Pedestal \u2014 Base & Lower Bearing Plate",
+    "piece_count": 3,
+    "parts": [
+      {
+        "qty": "2\u00d7",
+        "name": "Light Gray 2\u00d72 Brick",
+        "id": "3003",
+        "icon": "images/parts/3003_71.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray 2\u00d78 Technic Plate w/ Holes",
+        "id": "3738",
+        "icon": "images/parts/3738_72.png"
+      }
+    ],
+    "instructions": [
+      "At the South end (row 27), snap two 2\u00d72 bricks (3003) at col 8 and col 14.",
+      "Snap one 2\u00d78 Technic Plate with Holes (3738) flat across the top."
+    ],
+    "check": "Matches the North Supply pedestal directly in line at col 11."
+  },
+  {
+    "num": 8,
+    "bag": "Bag 1 \u00b7 Foundation",
+    "title": "Take-Up Reel Pedestal \u2014 Riser Columns",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "Light Gray 2\u00d72 Brick",
+        "id": "3003",
+        "icon": "images/parts/3003_71.png"
+      }
+    ],
+    "instructions": [
+      "Stack two 2\u00d72 riser bricks (3003) on each end of the South lower Technic plate."
+    ],
+    "check": "Same height as the North Supply pedestal."
+  },
+  {
+    "num": 9,
+    "bag": "Bag 1 \u00b7 Foundation",
+    "title": "Take-Up Pedestal \u2014 Top Bearing, Axle & Bottom Pulley",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray 2\u00d78 Technic Plate w/ Holes",
+        "id": "3738",
+        "icon": "images/parts/3738_72.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Black 10L Technic Axle",
+        "id": "3737",
+        "icon": "images/parts/3737_0.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Yellow Wedge Belt Pulley",
+        "id": "4185",
+        "icon": "images/parts/4185_14.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Light Gray 1L Technic Bush",
+        "id": "3713",
+        "icon": "images/parts/3713_71.png"
+      }
+    ],
+    "instructions": [
+      "Snap the upper 2\u00d78 Technic Plate (3738) on top of the South risers.",
+      "Drop the vertical 10L axle (3737) down, threading the yellow Wedge Belt Pulley (4185) at the bottom (~1 cm up) and a 1L bushing (3713) above the top plate."
+    ],
+    "check": "The bottom pulley spins smoothly with the axle underneath the lower plate."
+  },
+  {
+    "num": 10,
+    "bag": "Bag 1 \u00b7 Foundation",
+    "title": "Seat the Flat Take-Up Reel (South)",
+    "piece_count": 3,
+    "parts": [
+      {
+        "qty": "2\u00d7",
+        "name": "Green 8mm Reel Flange (40T Proxy)",
+        "id": "3649",
+        "icon": "images/parts/3649_2.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray Wedge Belt Pulley",
+        "id": "4185",
+        "icon": "images/parts/4185_72.png"
+      }
+    ],
+    "instructions": [
+      "Seat your flat 8mm Take-Up Reel (green proxy) on the South vertical axle at the EXACT same height as the Supply Reel."
+    ],
+    "check": "A straight ruler along col 13.5 touches the East rims of both reels at the exact same height."
+  },
+  {
+    "num": 11,
+    "bag": "Bag 2 \u00b7 Film Drive",
+    "title": "Anchor Your Single 5\u00d77 Technic Gearbox Frame",
+    "piece_count": 2,
+    "parts": [
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray 1\u00d74 Technic Brick",
+        "id": "3701",
+        "icon": "images/parts/3701_72.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray 5\u00d77 Technic Frame (only 1!)",
+        "id": "64179",
+        "icon": "images/parts/64179_72.png"
+      }
+    ],
+    "instructions": [
+      "At row 23 (col 16), snap one 1\u00d74 Technic brick (3701) onto the baseplate parallel to the existing row 19 rail.",
+      "Mount your ONLY 5\u00d77 Open-Center Technic Frame (64179) lying flat across the row 19 rail and the new row 23 brick."
+    ],
+    "check": "The 5\u00d77 frame sits flat and rigid across both rails\u2014this locks the worm gear and 24T gear in exact mesh."
+  },
+  {
+    "num": 12,
+    "bag": "Bag 2 \u00b7 Film Drive",
+    "title": "Add Gearbox Riser Columns (With Worm-Axle Bearing Hole)",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "3\u00d7",
+        "name": "Light Gray 2\u00d72 Brick",
+        "id": "3003",
+        "icon": "images/parts/3003_71.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Light Gray 1\u00d72 Technic Brick w/ Hole",
+        "id": "3700",
+        "icon": "images/parts/3700_71.png"
+      }
+    ],
+    "instructions": [
+      "Stack two 2\u00d72 bricks (3003) on the West side (col 12) and one 2\u00d72 brick + one 1\u00d72 Technic Brick with Hole (3700) on the East side (col 18) so the horizontal worm-gear axle passes cleanly through a real Technic bearing hole."
+    ],
+    "check": "The round Technic hole on the East riser faces East\u2013West right at 24T-gear height."
+  },
+  {
+    "num": 13,
+    "bag": "Bag 2 \u00b7 Film Drive",
+    "title": "Install Gearbox Top Bearing, Shaft, 24T Gear & Bottom Pulley",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray 2\u00d78 Technic Plate w/ Holes",
+        "id": "3738",
+        "icon": "images/parts/3738_72.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Black 10L Technic Axle",
+        "id": "3737",
+        "icon": "images/parts/3737_0.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Yellow Wedge Belt Pulley",
+        "id": "4185",
+        "icon": "images/parts/4185_14.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray 24-Tooth Gear",
+        "id": "3648",
+        "icon": "images/parts/3648_72.png"
+      }
+    ],
+    "instructions": [
+      "Snap one 2\u00d78 Technic Plate with Holes (3738) across the top of the gearbox risers (centered at col 15).",
+      "Drop the vertical 10L axle (3737) down through col 15, threading the yellow Pulley (4185) at the bottom and the 24-Tooth Gear (3648) inside the gearbox."
+    ],
+    "check": "Spin the vertical axle\u2014the 24T gear and bottom pulley turn together smoothly."
+  },
+  {
+    "num": 14,
+    "bag": "Bag 2 \u00b7 Film Drive",
+    "title": "Mount the Flat Driven Rubber Pinch Roller",
+    "piece_count": 2,
+    "parts": [
+      {
+        "qty": "1\u00d7",
+        "name": "Light Gray Wheel Rim",
+        "id": "6014",
+        "icon": "images/parts/6014_71.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Black Smooth Rubber Tire",
+        "id": "61254",
+        "icon": "images/parts/61254_0.png"
+      }
+    ],
+    "instructions": [
+      "Fit the smooth rubber tire (61254) onto the wheel rim (6014) and press it FLAT onto the top of the driven 10L axle at Film Plane Height."
+    ],
+    "check": "The West outer rubber tread of this flat roller lines up right along col 13.5."
+  },
+  {
+    "num": 15,
+    "bag": "Bag 2 \u00b7 Film Drive",
+    "title": "Mesh the Horizontal Self-Locking Worm Gear",
+    "piece_count": 3,
+    "parts": [
+      {
+        "qty": "1\u00d7",
+        "name": "Black 6L Technic Axle",
+        "id": "3706",
+        "icon": "images/parts/3706_0.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray 2L Worm Gear",
+        "id": "4716",
+        "icon": "images/parts/4716_72.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Light Gray 1L Technic Bush",
+        "id": "3713",
+        "icon": "images/parts/3713_71.png"
+      }
+    ],
+    "instructions": [
+      "Slide the horizontal 6L axle (3706) through the East side of the gearbox at the exact height of the 24T gear.",
+      "Thread the 2L Worm Gear (4716) so its spiral meshes snugly into the 24T gear, secured with a 1L bushing (3713)."
+    ],
+    "check": "Turn the horizontal axle by hand\u2014the rubber roller turns slowly. Try turning the rubber roller by hand\u2014it MUST lock solid!"
+  },
+  {
+    "num": 16,
+    "bag": "Bag 2 \u00b7 Film Drive",
+    "title": "Build the 28BYJ-48 Stepper Motor Cradle",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray 2\u00d74 Brick",
+        "id": "3001",
+        "icon": "images/parts/3001_72.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray 1\u00d74 Technic Brick",
+        "id": "3701",
+        "icon": "images/parts/3701_72.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Light Gray 2\u00d74 Brick",
+        "id": "3001",
+        "icon": "images/parts/3001_71.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Blue 2\u00d74 Plate",
+        "id": "3020",
+        "icon": "images/parts/3020_1.png"
+      }
+    ],
+    "instructions": [
+      "At col 23, row 21, build the motor pedestal (2\u00d74 brick + 1\u00d74 Technic brick) to support the 28BYJ-48 stepper body.",
+      "Connect the 28BYJ-48 shaft to the horizontal worm axle using the 5mm-to-Technic coupler and secure the motor with 2 zip-ties."
+    ],
+    "check": "The motor shaft aligns straight with the horizontal worm axle without binding."
+  },
+  {
+    "num": 17,
+    "bag": "Bag 2 \u00b7 Film Drive",
+    "title": "Install the Yellow Pivoting Idler Arm & Axle",
+    "piece_count": 3,
+    "parts": [
+      {
+        "qty": "1\u00d7",
+        "name": "1\u00d77 Technic Liftarm (Yellow)",
+        "id": "32524",
+        "icon": "images/parts/32524_14.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Light Gray Gray Frictionless Pin",
+        "id": "3673",
+        "icon": "images/parts/3673_71.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Black 4L Technic Axle",
+        "id": "3705",
+        "icon": "images/parts/3705_0.png"
+      }
+    ],
+    "instructions": [
+      "Lay the yellow 1\u00d77 Technic liftarm (32524) FLAT on the West side (col 12), hinged at its South end with a gray frictionless pin (3673).",
+      "Push the vertical 4L axle (3705) up through the North end hole of the yellow arm."
+    ],
+    "check": "The yellow arm swings freely like a flat horizontal hinge."
+  },
+  {
+    "num": 18,
+    "bag": "Bag 2 \u00b7 Film Drive",
+    "title": "Mount Idler Rubber Tire & Underneath Slip-Clutch Band",
+    "piece_count": 3,
+    "parts": [
+      {
+        "qty": "1\u00d7",
+        "name": "Light Gray Wheel Rim",
+        "id": "6014",
+        "icon": "images/parts/6014_71.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Black Smooth Rubber Tire",
+        "id": "61254",
+        "icon": "images/parts/61254_0.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Yellow 1\u00d74 Smooth Tile",
+        "id": "2431",
+        "icon": "images/parts/2431_14.png"
+      }
+    ],
+    "instructions": [
+      "Press the second flat smooth rubber tire (61254 + 6014) onto the vertical 4L axle so it presses against the driven tire.",
+      "Hook a small rubber band from the yellow arm to the gearbox frame for light pinch tension, and loop a thin slip-clutch rubber band underneath between the two yellow bottom pulleys (yellow route tile marks the diagonal path)."
+    ],
+    "check": "Feed a test strip of 8mm film between the two flat rubber tires\u2014turning the worm gear advances it smoothly South while gently winding the Take-Up Reel."
+  },
+  {
+    "num": 19,
+    "bag": "Bag 3 \u00b7 Optics Gate",
+    "title": "Film Gate Pedestal \u2014 Lower Two Layers",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "Black 2\u00d74 Brick",
+        "id": "3001",
+        "icon": "images/parts/3001_0.png"
+      }
+    ],
+    "instructions": [
+      "Right at the center + intersection (cols 12.5 and 14.5, row 15.5), stack two pairs of black 2\u00d74 bricks (3001) to form a solid 4\u00d74 pedestal base."
+    ],
+    "check": "Solid black 4\u00d74 foundation centered directly on the optical axis."
+  },
+  {
+    "num": 20,
+    "bag": "Bag 3 \u00b7 Optics Gate",
+    "title": "Film Gate Pedestal \u2014 Upper Two Layers",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "Black 2\u00d74 Brick",
+        "id": "3001",
+        "icon": "images/parts/3001_0.png"
+      }
+    ],
+    "instructions": [
+      "Add two more pairs of black 2\u00d74 bricks (3001) bringing the pedestal right up to the bottom edge of the 8mm film."
+    ],
+    "check": "Top of the pedestal sits 4 bricks high (just under Film Plane Height)."
+  },
+  {
+    "num": 21,
+    "bag": "Bag 3 \u00b7 Optics Gate",
+    "title": "Smooth Glide Tile & West Gate Walls",
+    "piece_count": 3,
+    "parts": [
+      {
+        "qty": "1\u00d7",
+        "name": "Black 1\u00d76 Smooth Tile",
+        "id": "6636",
+        "icon": "images/parts/6636_0.png"
+      },
+      {
+        "qty": "2\u00d7",
+        "name": "Black 1\u00d72 Brick",
+        "id": "3004",
+        "icon": "images/parts/3004_0.png"
+      }
+    ],
+    "instructions": [
+      "Snap the smooth black 1\u00d76 tile (6636) along the centerline (col 13.5) so the bottom edge of the film glides on glassy plastic.",
+      "Add the lower West aperture wall bricks (1\u00d72 black bricks, 3004) at rows 13.5 and 17.5, leaving a clean 1-frame window in the middle."
+    ],
+    "check": "Open light window sits dead-center on row 15.5."
+  },
+  {
+    "num": 22,
+    "bag": "Bag 3 \u00b7 Optics Gate",
+    "title": "Complete Aperture Window Walls (East & Upper)",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "Black 1\u00d72 Brick",
+        "id": "3004",
+        "icon": "images/parts/3004_0.png"
+      }
+    ],
+    "instructions": [
+      "Add the lower East gate wall bricks (3004) at col 15 and the upper West wall bricks to bring the window to full height."
+    ],
+    "check": "Clear vertical film channel runs cleanly North\u2013South through the gate."
+  },
+  {
+    "num": 23,
+    "bag": "Bag 3 \u00b7 Optics Gate",
+    "title": "Cap the Film Gate Roof",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "2\u00d7",
+        "name": "Black 1\u00d72 Brick",
+        "id": "3004",
+        "icon": "images/parts/3004_0.png"
+      },
+      {
+        "qty": "2\u00d7",
+        "name": "Black 2\u00d74 Plate",
+        "id": "3020",
+        "icon": "images/parts/3020_0.png"
+      }
+    ],
+    "instructions": [
+      "Add the final two upper East wall bricks (3004) and cap the Film Gate roof with two black 2\u00d74 plates (3020)."
+    ],
+    "check": "Pull a test strip of 8mm film (with a splice!) through the gate\u2014it must glide with zero snagging."
+  },
+  {
+    "num": 24,
+    "bag": "Bag 3 \u00b7 Optics Gate",
+    "title": "Build the 3mm Acrylic Diffuser Stand (West of Gate)",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "Black 1\u00d74 Brick",
+        "id": "3010",
+        "icon": "images/parts/3010_0.png"
+      }
+    ],
+    "instructions": [
+      "Just West of the Film Gate (col 9, row 15.5), stack four black 1\u00d74 bricks (3010) to form the diffuser base."
+    ],
+    "check": "Sits squarely parallel to the Film Gate, ~2 cm to the West."
+  },
+  {
+    "num": 25,
+    "bag": "Bag 3 \u00b7 Optics Gate",
+    "title": "Seat the Milky-White 3mm Cast Acrylic Diffuser",
+    "piece_count": 2,
+    "parts": [
+      {
+        "qty": "2\u00d7",
+        "name": "White 1\u00d74 Brick",
+        "id": "3010",
+        "icon": "images/parts/3010_15.png"
+      }
+    ],
+    "instructions": [
+      "Seat your 3mm milky-white translucent cast acrylic sheet (#2447, shown as white bricks) straight and parallel right behind the Film Gate window."
+    ],
+    "check": "Covers the full aperture window evenly with zero tilt."
+  },
+  {
+    "num": 26,
+    "bag": "Bag 3 \u00b7 Optics Gate",
+    "title": "Black Light Tunnel \u2014 Section 1 Base (Col 18)",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "Black 2\u00d74 Brick",
+        "id": "3001",
+        "icon": "images/parts/3001_0.png"
+      }
+    ],
+    "instructions": [
+      "Just East of the Film Gate (col 18, row 15.5), stack four black 2\u00d74 bricks (3001) to form the first tunnel floor section."
+    ],
+    "check": "Flush against the East face of the Film Gate pedestal."
+  },
+  {
+    "num": 27,
+    "bag": "Bag 3 \u00b7 Optics Gate",
+    "title": "Black Light Tunnel \u2014 Section 1 Walls",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "Black 1\u00d74 Brick",
+        "id": "3010",
+        "icon": "images/parts/3010_0.png"
+      }
+    ],
+    "instructions": [
+      "Add two layers of black 1\u00d74 wall bricks (3010) along the North (row 13.5) and South (row 17.5) edges to form a hollow light-tight passage."
+    ],
+    "check": "Center channel at row 15.5 stays completely open for the optical beam."
+  },
+  {
+    "num": 28,
+    "bag": "Bag 3 \u00b7 Optics Gate",
+    "title": "Black Light Tunnel \u2014 Section 2 Base (Col 22)",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "Black 2\u00d74 Brick",
+        "id": "3001",
+        "icon": "images/parts/3001_0.png"
+      }
+    ],
+    "instructions": [
+      "Continue East (col 22, row 15.5) with four more black 2\u00d74 bricks (3001) for the second tunnel floor section."
+    ],
+    "check": "Forms a continuous straight tunnel floor toward the camera."
+  },
+  {
+    "num": 29,
+    "bag": "Bag 3 \u00b7 Optics Gate",
+    "title": "Black Light Tunnel \u2014 Section 2 Walls",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "Black 1\u00d74 Brick",
+        "id": "3010",
+        "icon": "images/parts/3010_0.png"
+      }
+    ],
+    "instructions": [
+      "Add two layers of black 1\u00d74 wall bricks (3010) along the North and South edges of Section 2."
+    ],
+    "check": "Peek through from the East\u2014straight unobstructed view of the white diffuser."
+  },
+  {
+    "num": 30,
+    "bag": "Bag 3 \u00b7 Optics Gate",
+    "title": "Cap the Black Light Tunnel Roof",
+    "piece_count": 2,
+    "parts": [
+      {
+        "qty": "2\u00d7",
+        "name": "Black 2\u00d74 Plate",
+        "id": "3020",
+        "icon": "images/parts/3020_0.png"
+      }
+    ],
+    "instructions": [
+      "Snap two black 2\u00d74 plates (3020) across the top of Sections 1 and 2 to seal out room light from above."
+    ],
+    "check": "Shine a flashlight into the diffuser\u2014only the backlit 1-frame window glows inside the dark tunnel."
+  },
+  {
+    "num": 31,
+    "bag": "Bag 4 \u00b7 Camera & LED",
+    "title": "Build the 5600K LED Pedestal (Far West)",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "Black 2\u00d74 Brick",
+        "id": "3001",
+        "icon": "images/parts/3001_0.png"
+      }
+    ],
+    "instructions": [
+      "At Far West (col 3, row 15.5\u2014leaving a 2\u20133 cm air gap before the diffuser so LED diodes blend smoothly), stack four black 2\u00d74 bricks (3001)."
+    ],
+    "check": "Squarely centered on row 15.5 facing straight East."
+  },
+  {
+    "num": 32,
+    "bag": "Bag 4 \u00b7 Camera & LED",
+    "title": "Mount the 5600K CRI 95+ LED Video Light",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "2\u00d7",
+        "name": "Black 1\u00d74 Brick",
+        "id": "3010",
+        "icon": "images/parts/3010_0.png"
+      },
+      {
+        "qty": "2\u00d7",
+        "name": "White 1\u00d74 Brick",
+        "id": "3010",
+        "icon": "images/parts/3010_15.png"
+      }
+    ],
+    "instructions": [
+      "Place your Ulanzi VL49 LED light (shown as black housing + white emitter face) squarely on the Far West pedestal facing straight East, set to 5600K on USB-C power."
+    ],
+    "check": "Light shines straight through the acrylic diffuser and Film Gate window."
+  },
+  {
+    "num": 33,
+    "bag": "Bag 4 \u00b7 Camera & LED",
+    "title": "Build the HQ Camera Pedestal (Far East)",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "Black 2\u00d74 Brick",
+        "id": "3001",
+        "icon": "images/parts/3001_0.png"
+      }
+    ],
+    "instructions": [
+      "At Far East (col 28, row 15.5), stack four black 2\u00d74 bricks (3001) to bring the camera mount up to optical axis height."
+    ],
+    "check": "Aligned straight along row 15.5 facing West into the black light tunnel."
+  },
+  {
+    "num": 34,
+    "bag": "Bag 4 \u00b7 Camera & LED",
+    "title": "Shim Height & Mount 35mm Lens + RPi HQ Camera",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "1\u00d7",
+        "name": "Black 2\u00d74 Plate",
+        "id": "3020",
+        "icon": "images/parts/3020_0.png"
+      },
+      {
+        "qty": "1\u00d7",
+        "name": "Dark Gray 2\u00d74 Brick",
+        "id": "3001",
+        "icon": "images/parts/3001_72.png"
+      },
+      {
+        "qty": "2\u00d7",
+        "name": "Green 1\u00d74 Brick",
+        "id": "3010",
+        "icon": "images/parts/3010_2.png"
+      }
+    ],
+    "instructions": [
+      "Add black 2\u00d74 shim plates (3020, 3.2 mm each) until the 35mm C-mount lens aligns dead-center with the Film Gate window.",
+      "Seat the 35mm lens + macro tubes (gray proxy) and green Raspberry Pi HQ Camera PCB, and lock the PCB firmly with 2 zip-ties."
+    ],
+    "check": "LED, Diffuser, Film Gate, Tunnel, and 35mm Lens form one dead-straight horizontal line."
+  },
+  {
+    "num": 35,
+    "bag": "Bag 4 \u00b7 Camera & LED",
+    "title": "Thread 8mm Film, Wire ULN2003 & Lock Focus",
+    "piece_count": 4,
+    "parts": [
+      {
+        "qty": "4\u00d7",
+        "name": "8mm Film Strip (Visual Guide)",
+        "id": "Film",
+        "icon": "images/parts/6636_57.png"
+      }
+    ],
+    "instructions": [
+      "NOTE: The translucent amber strip shown here is NOT a LEGO part\u2014it represents your actual 8mm movie film standing on edge!",
+      "Thread a sacrificial 8mm test strip tangent off the Supply Reel \u2192 straight through the Film Gate \u2192 between the two flat Pinch Rollers \u2192 tangent onto the Take-Up Reel.",
+      "Wire ULN2003 per docs/wiring.md, run `uv run python src/scanner.py --calibrate --show-debug`, focus on film grain, and lock the lens thumbscrews!"
+    ],
+    "check": "Sprocket hole centers cleanly on the green target line and film advances smoothly with zero jitter. Ready to scan!"
+  }
+]

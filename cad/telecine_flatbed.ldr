@@ -1,159 +1,234 @@
-0 DIY Flatbed Standard 8mm Telecine Scanner
+0 DIY Flatbed Standard 8mm Telecine Scanner (Max 4 pcs/step)
 0 Name: telecine_flatbed.ldr
 0 Author: DIY 8mm Telecine Project
 0 !LDRAW_ORG Unofficial_Model
+0 !LPUB PAGE SIZE GLOBAL 11.0 8.5
+0 !LPUB PAGE ORIENTATION GLOBAL LANDSCAPE
+0 !LPUB PAGE BACKGROUND GLOBAL COLOR "#E6F1FB"
+0 !LPUB PLI BACKGROUND GLOBAL COLOR "#FFFFFF"
+0 !LPUB PLI BORDER GLOBAL ROUND #2563EB 0.035 10 MARGINS 0.08 0.08
+0 !LPUB ASSEM CAMERA_ANGLES GLOBAL 35 45
+0 !LPUB ASSEM MODEL_SCALE GLOBAL 0.72
 
-0 // STEP 1: Baseplate 32x32 and Cross Anchor Rails
+0 // STEP 1 (Bag 1 · Foundation): Place Baseplate & West–East Optical Rails [3 pcs]
 1 71 0 0 0 1 0 0 0 1 0 0 0 1 3811.dat
 1 72 20 -24 -70 1 0 0 0 1 0 0 0 1 3703.dat
 1 72 20 -24 70 1 0 0 0 1 0 0 0 1 3703.dat
-1 72 -110 -24 0 0 0 1 0 1 0 -1 0 0 3703.dat
-1 72 30 -24 0 0 0 1 0 1 0 -1 0 0 3703.dat
 0 STEP
 
-0 // STEP 2: North Supply Reel Bearing Pedestal (2x8 Technic Plates)
+0 // STEP 2 (Bag 1 · Foundation): Add North–South Film Path Side Rails (Zero Overlap) [2 pcs]
+1 72 -110 -24 0 0 0 1 0 1 0 -1 0 0 3894.dat
+1 72 10 -24 0 0 0 1 0 1 0 -1 0 0 3894.dat
+0 STEP
+
+0 // STEP 3 (Bag 1 · Foundation): Supply Reel Pedestal — Base & Lower Bearing Plate [3 pcs]
 1 71 -150 -24 -230 1 0 0 0 1 0 0 0 1 3003.dat
 1 71 -30 -24 -230 1 0 0 0 1 0 0 0 1 3003.dat
 1 72 -90 -32 -230 1 0 0 0 1 0 0 0 1 3738.dat
-1 71 -150 -56 -230 1 0 0 0 1 0 0 0 1 3003.dat
-1 71 -150 -80 -230 1 0 0 0 1 0 0 0 1 3003.dat
-1 71 -30 -56 -230 1 0 0 0 1 0 0 0 1 3003.dat
-1 71 -30 -80 -230 1 0 0 0 1 0 0 0 1 3003.dat
-1 72 -90 -88 -230 1 0 0 0 1 0 0 0 1 3738.dat
 0 STEP
 
-0 // STEP 3: Vertical Supply Axle and Flat Supply Reel
+0 // STEP 4 (Bag 1 · Foundation): Supply Reel Pedestal — Riser Columns [4 pcs]
+1 71 -150 -56 -230 1 0 0 0 1 0 0 0 1 3003.dat
+1 71 -30 -56 -230 1 0 0 0 1 0 0 0 1 3003.dat
+1 71 -150 -80 -230 1 0 0 0 1 0 0 0 1 3003.dat
+1 71 -30 -80 -230 1 0 0 0 1 0 0 0 1 3003.dat
+0 STEP
+
+0 // STEP 5 (Bag 1 · Foundation): Supply Reel Pedestal — Top Bearing & Vertical Axle [3 pcs]
+1 72 -90 -88 -230 1 0 0 0 1 0 0 0 1 3738.dat
 1 0 -90 -100 -230 0 -1 0 1 0 0 0 0 1 3737.dat
 1 71 -90 -94 -230 0 -1 0 1 0 0 0 0 1 3713.dat
+0 STEP
+
+0 // STEP 6 (Bag 1 · Foundation): Seat the Flat Supply Reel (North) [3 pcs]
 1 1 -90 -100 -230 1 0 0 0 0 -1 0 1 0 3649.dat
 1 72 -90 -112 -230 1 0 0 0 0 -1 0 1 0 4185.dat
 1 1 -90 -124 -230 1 0 0 0 0 -1 0 1 0 3649.dat
 0 STEP
 
-0 // STEP 4: South Take-Up Reel Pedestal and Flat Take-Up Reel
+0 // STEP 7 (Bag 1 · Foundation): Take-Up Reel Pedestal — Base & Lower Bearing Plate [3 pcs]
 1 71 -150 -24 230 1 0 0 0 1 0 0 0 1 3003.dat
 1 71 -30 -24 230 1 0 0 0 1 0 0 0 1 3003.dat
 1 72 -90 -32 230 1 0 0 0 1 0 0 0 1 3738.dat
+0 STEP
+
+0 // STEP 8 (Bag 1 · Foundation): Take-Up Reel Pedestal — Riser Columns [4 pcs]
 1 71 -150 -56 230 1 0 0 0 1 0 0 0 1 3003.dat
-1 71 -150 -80 230 1 0 0 0 1 0 0 0 1 3003.dat
 1 71 -30 -56 230 1 0 0 0 1 0 0 0 1 3003.dat
+1 71 -150 -80 230 1 0 0 0 1 0 0 0 1 3003.dat
 1 71 -30 -80 230 1 0 0 0 1 0 0 0 1 3003.dat
+0 STEP
+
+0 // STEP 9 (Bag 1 · Foundation): Take-Up Pedestal — Top Bearing, Axle & Bottom Pulley [4 pcs]
 1 72 -90 -88 230 1 0 0 0 1 0 0 0 1 3738.dat
 1 0 -90 -100 230 0 -1 0 1 0 0 0 0 1 3737.dat
 1 14 -90 -16 230 1 0 0 0 0 -1 0 1 0 4185.dat
 1 71 -90 -94 230 0 -1 0 1 0 0 0 0 1 3713.dat
+0 STEP
+
+0 // STEP 10 (Bag 1 · Foundation): Seat the Flat Take-Up Reel (South) [3 pcs]
 1 2 -90 -100 230 1 0 0 0 0 -1 0 1 0 3649.dat
 1 72 -90 -112 230 1 0 0 0 0 -1 0 1 0 4185.dat
 1 2 -90 -124 230 1 0 0 0 0 -1 0 1 0 3649.dat
 0 STEP
 
-0 // STEP 5: Driven Pinch Roller and 24-Tooth Gear Shaft (Single 5x7 Frame)
-1 72 10 -24 70 1 0 0 0 1 0 0 0 1 3701.dat
+0 // STEP 11 (Bag 2 · Film Drive): Anchor Your Single 5×7 Technic Gearbox Frame [2 pcs]
 1 72 10 -24 150 1 0 0 0 1 0 0 0 1 3701.dat
 1 72 10 -34 110 0 0 1 0 1 0 -1 0 0 64179.dat
+0 STEP
+
+0 // STEP 12 (Bag 2 · Film Drive): Add Gearbox Riser Columns (With Worm-Axle Bearing Hole) [4 pcs]
 1 71 -70 -48 110 1 0 0 0 1 0 0 0 1 3003.dat
-1 71 -70 -72 110 1 0 0 0 1 0 0 0 1 3003.dat
 1 71 50 -48 110 1 0 0 0 1 0 0 0 1 3003.dat
-1 71 50 -72 110 1 0 0 0 1 0 0 0 1 3003.dat
+1 71 -70 -72 110 1 0 0 0 1 0 0 0 1 3003.dat
+1 71 50 -72 110 0 0 1 0 1 0 -1 0 0 3700.dat
+0 STEP
+
+0 // STEP 13 (Bag 2 · Film Drive): Install Gearbox Top Bearing, Shaft, 24T Gear & Bottom Pulley [4 pcs]
 1 72 -10 -80 110 1 0 0 0 1 0 0 0 1 3738.dat
 1 0 -10 -100 110 0 -1 0 1 0 0 0 0 1 3737.dat
 1 14 -10 -16 110 1 0 0 0 0 -1 0 1 0 4185.dat
 1 72 -10 -58 110 1 0 0 0 0 -1 0 1 0 3648.dat
+0 STEP
+
+0 // STEP 14 (Bag 2 · Film Drive): Mount the Flat Driven Rubber Pinch Roller [2 pcs]
 1 71 -10 -112 110 1 0 0 0 0 -1 0 1 0 6014.dat
 1 0 -10 -112 110 1 0 0 0 0 -1 0 1 0 61254.dat
 0 STEP
 
-0 // STEP 6: Self-Locking Worm Gear and 28BYJ-48 Stepper Cradle
+0 // STEP 15 (Bag 2 · Film Drive): Mesh the Horizontal Self-Locking Worm Gear [3 pcs]
 1 0 70 -58 110 1 0 0 0 1 0 0 0 1 3706.dat
 1 72 40 -58 110 0 -1 0 1 0 0 0 0 1 4716.dat
 1 71 90 -58 110 1 0 0 0 1 0 0 0 1 3713.dat
+0 STEP
+
+0 // STEP 16 (Bag 2 · Film Drive): Build the 28BYJ-48 Stepper Motor Cradle [4 pcs]
 1 72 150 -24 110 1 0 0 0 1 0 0 0 1 3001.dat
 1 72 150 -48 110 1 0 0 0 1 0 0 0 1 3701.dat
 1 71 150 -58 110 1 0 0 0 1 0 0 0 1 3001.dat
 1 1 150 -66 110 1 0 0 0 1 0 0 0 1 3020.dat
 0 STEP
 
-0 // STEP 7: Spring-Loaded Idler Pinch Roller Arm
+0 // STEP 17 (Bag 2 · Film Drive): Install the Yellow Pivoting Idler Arm & Axle [3 pcs]
 1 14 -70 -92 140 0 -1 0 1 0 0 0 0 1 32524.dat
-1 0 -70 -106 110 0 -1 0 1 0 0 0 0 1 3705.dat
-1 71 -70 -112 110 1 0 0 0 0 -1 0 1 0 6014.dat
-1 0 -70 -112 110 1 0 0 0 0 -1 0 1 0 61254.dat
 1 71 -70 -88 180 1 0 0 0 0 -1 0 1 0 3673.dat
+1 0 -70 -106 110 0 -1 0 1 0 0 0 0 1 3705.dat
 0 STEP
 
-0 // STEP 8: Underneath Slip-Clutch Band Route
+0 // STEP 18 (Bag 2 · Film Drive): Mount Idler Rubber Tire & Underneath Slip-Clutch Band [3 pcs]
+1 71 -70 -112 110 1 0 0 0 0 -1 0 1 0 6014.dat
+1 0 -70 -112 110 1 0 0 0 0 -1 0 1 0 61254.dat
 1 14 -50 -8 170 0 0 1 0 1 0 -1 0 0 2431.dat
 0 STEP
 
-0 // STEP 9: Smooth-Tile Film Gate and Aperture Mask
+0 // STEP 19 (Bag 3 · Optics Gate): Film Gate Pedestal — Lower Two Layers [4 pcs]
 1 0 -60 -24 0 0 0 1 0 1 0 -1 0 0 3001.dat
 1 0 -20 -24 0 0 0 1 0 1 0 -1 0 0 3001.dat
 1 0 -60 -48 0 0 0 1 0 1 0 -1 0 0 3001.dat
 1 0 -20 -48 0 0 0 1 0 1 0 -1 0 0 3001.dat
+0 STEP
+
+0 // STEP 20 (Bag 3 · Optics Gate): Film Gate Pedestal — Upper Two Layers [4 pcs]
 1 0 -60 -72 0 0 0 1 0 1 0 -1 0 0 3001.dat
 1 0 -20 -72 0 0 0 1 0 1 0 -1 0 0 3001.dat
 1 0 -60 -96 0 0 0 1 0 1 0 -1 0 0 3001.dat
 1 0 -20 -96 0 0 0 1 0 1 0 -1 0 0 3001.dat
+0 STEP
+
+0 // STEP 21 (Bag 3 · Optics Gate): Smooth Glide Tile & West Gate Walls [3 pcs]
 1 0 -40 -104 0 0 0 1 0 1 0 -1 0 0 6636.dat
 1 0 -70 -120 -40 0 0 1 0 1 0 -1 0 0 3004.dat
-1 0 -70 -144 -40 0 0 1 0 1 0 -1 0 0 3004.dat
 1 0 -70 -120 40 0 0 1 0 1 0 -1 0 0 3004.dat
-1 0 -70 -144 40 0 0 1 0 1 0 -1 0 0 3004.dat
+0 STEP
+
+0 // STEP 22 (Bag 3 · Optics Gate): Complete Aperture Window Walls (East & Upper) [4 pcs]
 1 0 -10 -120 -40 0 0 1 0 1 0 -1 0 0 3004.dat
-1 0 -10 -144 -40 0 0 1 0 1 0 -1 0 0 3004.dat
 1 0 -10 -120 40 0 0 1 0 1 0 -1 0 0 3004.dat
+1 0 -70 -144 -40 0 0 1 0 1 0 -1 0 0 3004.dat
+1 0 -70 -144 40 0 0 1 0 1 0 -1 0 0 3004.dat
+0 STEP
+
+0 // STEP 23 (Bag 3 · Optics Gate): Cap the Film Gate Roof [4 pcs]
+1 0 -10 -144 -40 0 0 1 0 1 0 -1 0 0 3004.dat
 1 0 -10 -144 40 0 0 1 0 1 0 -1 0 0 3004.dat
 1 0 -60 -152 0 0 0 1 0 1 0 -1 0 0 3020.dat
 1 0 -20 -152 0 0 0 1 0 1 0 -1 0 0 3020.dat
 0 STEP
 
-0 // STEP 10: 3mm Acrylic Diffuser Slot and Black Light Tunnel
+0 // STEP 24 (Bag 3 · Optics Gate): Build the 3mm Acrylic Diffuser Stand (West of Gate) [4 pcs]
 1 0 -130 -24 0 0 0 1 0 1 0 -1 0 0 3010.dat
 1 0 -130 -48 0 0 0 1 0 1 0 -1 0 0 3010.dat
 1 0 -130 -72 0 0 0 1 0 1 0 -1 0 0 3010.dat
 1 0 -130 -96 0 0 0 1 0 1 0 -1 0 0 3010.dat
+0 STEP
+
+0 // STEP 25 (Bag 3 · Optics Gate): Seat the Milky-White 3mm Cast Acrylic Diffuser [2 pcs]
 1 15 -130 -120 0 0 0 1 0 1 0 -1 0 0 3010.dat
 1 15 -130 -144 0 0 0 1 0 1 0 -1 0 0 3010.dat
+0 STEP
+
+0 // STEP 26 (Bag 3 · Optics Gate): Black Light Tunnel — Section 1 Base (Col 18) [4 pcs]
 1 0 50 -24 0 1 0 0 0 1 0 0 0 1 3001.dat
 1 0 50 -48 0 1 0 0 0 1 0 0 0 1 3001.dat
 1 0 50 -72 0 1 0 0 0 1 0 0 0 1 3001.dat
 1 0 50 -96 0 1 0 0 0 1 0 0 0 1 3001.dat
+0 STEP
+
+0 // STEP 27 (Bag 3 · Optics Gate): Black Light Tunnel — Section 1 Walls [4 pcs]
 1 0 50 -120 -40 1 0 0 0 1 0 0 0 1 3010.dat
-1 0 50 -144 -40 1 0 0 0 1 0 0 0 1 3010.dat
 1 0 50 -120 40 1 0 0 0 1 0 0 0 1 3010.dat
+1 0 50 -144 -40 1 0 0 0 1 0 0 0 1 3010.dat
 1 0 50 -144 40 1 0 0 0 1 0 0 0 1 3010.dat
-1 0 50 -152 0 1 0 0 0 1 0 0 0 1 3020.dat
+0 STEP
+
+0 // STEP 28 (Bag 3 · Optics Gate): Black Light Tunnel — Section 2 Base (Col 22) [4 pcs]
 1 0 130 -24 0 1 0 0 0 1 0 0 0 1 3001.dat
 1 0 130 -48 0 1 0 0 0 1 0 0 0 1 3001.dat
 1 0 130 -72 0 1 0 0 0 1 0 0 0 1 3001.dat
 1 0 130 -96 0 1 0 0 0 1 0 0 0 1 3001.dat
+0 STEP
+
+0 // STEP 29 (Bag 3 · Optics Gate): Black Light Tunnel — Section 2 Walls [4 pcs]
 1 0 130 -120 -40 1 0 0 0 1 0 0 0 1 3010.dat
-1 0 130 -144 -40 1 0 0 0 1 0 0 0 1 3010.dat
 1 0 130 -120 40 1 0 0 0 1 0 0 0 1 3010.dat
+1 0 130 -144 -40 1 0 0 0 1 0 0 0 1 3010.dat
 1 0 130 -144 40 1 0 0 0 1 0 0 0 1 3010.dat
+0 STEP
+
+0 // STEP 30 (Bag 3 · Optics Gate): Cap the Black Light Tunnel Roof [2 pcs]
+1 0 50 -152 0 1 0 0 0 1 0 0 0 1 3020.dat
 1 0 130 -152 0 1 0 0 0 1 0 0 0 1 3020.dat
 0 STEP
 
-0 // STEP 11: 5600K LED Cradle and Raspberry Pi HQ Camera Cradle
+0 // STEP 31 (Bag 4 · Camera & LED): Build the 5600K LED Pedestal (Far West) [4 pcs]
 1 0 -250 -24 0 0 0 1 0 1 0 -1 0 0 3001.dat
 1 0 -250 -48 0 0 0 1 0 1 0 -1 0 0 3001.dat
 1 0 -250 -72 0 0 0 1 0 1 0 -1 0 0 3001.dat
 1 0 -250 -96 0 0 0 1 0 1 0 -1 0 0 3001.dat
+0 STEP
+
+0 // STEP 32 (Bag 4 · Camera & LED): Mount the 5600K CRI 95+ LED Video Light [4 pcs]
 1 0 -260 -120 0 0 0 1 0 1 0 -1 0 0 3010.dat
 1 0 -260 -144 0 0 0 1 0 1 0 -1 0 0 3010.dat
 1 15 -240 -120 0 0 0 1 0 1 0 -1 0 0 3010.dat
 1 15 -240 -144 0 0 0 1 0 1 0 -1 0 0 3010.dat
+0 STEP
+
+0 // STEP 33 (Bag 4 · Camera & LED): Build the HQ Camera Pedestal (Far East) [4 pcs]
 1 0 250 -24 0 1 0 0 0 1 0 0 0 1 3001.dat
 1 0 250 -48 0 1 0 0 0 1 0 0 0 1 3001.dat
 1 0 250 -72 0 1 0 0 0 1 0 0 0 1 3001.dat
 1 0 250 -96 0 1 0 0 0 1 0 0 0 1 3001.dat
+0 STEP
+
+0 // STEP 34 (Bag 4 · Camera & LED): Shim Height & Mount 35mm Lens + RPi HQ Camera [4 pcs]
 1 0 250 -104 0 1 0 0 0 1 0 0 0 1 3020.dat
 1 72 210 -120 0 1 0 0 0 1 0 0 0 1 3001.dat
 1 2 280 -120 0 0 0 1 0 1 0 -1 0 0 3010.dat
 1 2 280 -144 0 0 0 1 0 1 0 -1 0 0 3010.dat
 0 STEP
 
-0 // STEP 12: Thread 8mm Film Strip Tangent from Supply to Take-Up
+0 // STEP 35 (Bag 4 · Camera & LED): Thread 8mm Film, Wire ULN2003 & Lock Focus [4 pcs]
 1 57 -40 -114 -170 0 1 0 0 0 1 1 0 0 6636.dat
 1 57 -40 -114 -50 0 1 0 0 0 1 1 0 0 6636.dat
 1 57 -40 -114 70 0 1 0 0 0 1 1 0 0 6636.dat

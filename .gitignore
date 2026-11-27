@@ -16,3 +16,6 @@ captures/
 Thumbs.db
 *.swp
 *~
+
+# LPub3D build cache
+cad/LPub3D/
